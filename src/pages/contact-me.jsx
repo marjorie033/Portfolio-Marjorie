@@ -1,16 +1,12 @@
-/* ─── ContactPage.jsx ───────────────────────────────────────────
-   Two full-height sections:
-     Section 1 — white bg, social links, cat illustration
-     Section 2 — dark bg (#15141F), email form → EmailJS → Gmail
-──────────────────────────────────────────────────────────────── */
+
 import { useState, useEffect, useRef } from "react";
 
 /* ══════════════════════════════════════════════════
    ⚙️  YOUR EMAILJS CREDENTIALS — fill these in
 ══════════════════════════════════════════════════ */
-const EMAILJS_PUBLIC_KEY  = "UEyVvRODWixVpc1Za";   // Account → Public Key
-const EMAILJS_SERVICE_ID  = "service_k7vdwno";   // Email Services → Service ID
-const EMAILJS_TEMPLATE_ID = "template_9s5w0qa";  // Email Templates → Template ID
+const EMAILJS_PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+const EMAILJS_SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID; 
 
 /* ── Load & init EmailJS once ───────────────────── */
 function useEmailJS() {
