@@ -14,6 +14,7 @@ import { TransitionProvider } from './theme/page-transition.jsx'
 
 
 
+
 function ScrollToTop() {
   const { pathname } = useLocation()
 
@@ -23,9 +24,6 @@ function ScrollToTop() {
 
   return null
 }
-
-
-
 
 
 export default function App() {
