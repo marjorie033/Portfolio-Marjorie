@@ -8,6 +8,9 @@ import './theme/index.css'
 import Footer from './widgets/footer.jsx'
 import ProjectsHero from './pages/projects-hero.jsx'
 import ProjectView1 from './pages/project-pages/project1.jsx'
+import ProjectView2 from './pages/project-pages/project2-htsyf.jsx'
+import ProjectView3 from './pages/project-pages/project3-anito.jsx'
+
 import ContactPage from './pages/contact-me.jsx'
 import LoadingScreen from './pages/loading-screen.jsx'
 import { TransitionProvider } from './theme/page-transition.jsx'
@@ -44,6 +47,8 @@ export default function App() {
         <Route path="/projects" element={<ProjectsHero />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/project/know-your-trash" element={<ProjectView1 />} />
+        <Route path="/project/how-to-swim-your-fish" element={<ProjectView2 />} />
+        <Route path="/project/anito" element={<ProjectView3 />} />
       </Routes>
       <Footer />
       </TransitionProvider>

@@ -1,6 +1,7 @@
 import { createContext, useContext, useRef } from "react"
 import { useNavigate } from "react-router-dom"
 import { gsap } from "gsap"
+import { CatLogo} from "../theme/icons";
 
 const TransitionContext = createContext(null)
 
@@ -37,30 +38,6 @@ const TransitionContext = createContext(null)
 //     />
 //   </svg>
 // );
-
-
-const CatLogo = () => (
-  <svg
-    width="72"
-    height="76"
-    viewBox="0 0 146 154"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M52.5557 30.4453C59.1724 28.6038 66.207 27.6123 73.5 27.6123C81.9883 27.6123 90.1262 28.9559 97.6631 31.4189L145.898 3.47656L142.8 79.1084C143.587 82.8863 144 86.7823 144 90.7646C144 125.643 112.436 153.917 73.5 153.917C34.5639 153.917 3 125.643 3 90.7646C3 88.3943 3.14668 86.0545 3.43066 83.752L0 0L52.5557 30.4453Z"
-      fill="#15141F"
-    />
-    <ellipse cx="42.0891" cy="80.2508" rx="16.7525" ry="18.3459" fill="#FFD341" />
-    <ellipse cx="104.911" cy="80.2508" rx="16.7525" ry="18.3459" fill="#FFD341" />
-    <ellipse cx="41.7401" cy="80.2508" rx="7.32921" ry="10.5842" fill="#1E1E1E" />
-    <ellipse cx="104.562" cy="80.2508" rx="7.32921" ry="10.5842" fill="#1E1E1E" />
-    <ellipse cx="63.7277" cy="117.648" rx="9.77228" ry="8.46735" fill="white" />
-    <ellipse cx="83.2723" cy="117.648" rx="9.77228" ry="8.46735" fill="white" />
-  </svg>
-)
-
-
 
 // function PageTransition() {
 //   const overlayRef = useRef(null);
@@ -114,18 +91,45 @@ const CatLogo = () => (
 //   );
 // }
 
+const loadingPhrases = [
+  "Loading...",
+  "Almost there...",
+  "Hold on...",
+  "One sec...",
+];
+
 
 export function TransitionProvider({ children }) {
   const panelRef = useRef(null)
   const catRef = useRef(null)
   const navigate = useNavigate()
+  const textRef = useRef(null)
 
   const navigateTo = (path) => {
     const panel = panelRef.current
     const cat = catRef.current
     if (!panel || !cat) return navigate(path)
+    .to(cat, {
+      scale: 1,
+      opacity: 1,
+      duration: 0.3,
+      ease: 'back.out(1.7)',
+    }, '-=0.1')
 
-    const tl = gsap.timeline()
+    .to(textRef.current, {
+      opacity: 1,
+      y: 0,
+      duration: 0.25,
+      ease: 'power2.out',
+    }, '-=0.1')
+        const tl = gsap.timeline()
+    
+    .to([cat, textRef.current], {
+  scale: 1.15,
+  opacity: 0,
+  duration: 0.25,
+  ease: 'power2.inOut',
+})  
 
     /* 1. Cover screen FIRST before navigating */
     tl.set(panel, { display: 'flex', yPercent: -100, opacity: 1 })
@@ -177,22 +181,41 @@ export function TransitionProvider({ children }) {
 
       {/* Overlay lives here, always mounted */}
       <div
-        ref={panelRef}
-        style={{
-          position: 'fixed',
-          inset: 0,
-          zIndex: 9999,
-          display: 'none',
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: '#FFD341',
-          pointerEvents: 'none',
-        }}
-      >
-        <div ref={catRef}>
-          <CatLogo />
-        </div>
-      </div>
+  ref={panelRef}
+  style={{
+    position: 'fixed',
+    inset: 0,
+    zIndex: 9999,
+    display: 'none',
+    flexDirection: 'column',   // ← add this
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: '16px',               // ← add this
+    backgroundColor: '#FFD341',
+    pointerEvents: 'none',
+  }}
+>
+  <div ref={catRef}>
+    <CatLogo />
+  </div>
+
+  {/* Loading text */}
+  <p
+    ref={textRef}
+    style={{
+      fontFamily: "'Halfre', serif",
+      fontSize: '13px',
+      fontWeight: '700',
+      letterSpacing: '2px',
+      textTransform: 'uppercase',
+      color: '#15141F',
+      opacity: 0,
+      transform: 'translateY(8px)',
+    }}
+  >
+    Loading...
+  </p>
+</div>
     </TransitionContext.Provider>
   )
 }

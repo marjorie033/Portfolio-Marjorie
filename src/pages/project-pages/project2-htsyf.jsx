@@ -1,22 +1,22 @@
 import { useState } from "react";
 import SEO from '../../widgets/SEO.jsx'
 import '../../theme/index.css';
-import { CardBorderSVG, Snowflake, GitHubIcon, ArrowLeft, ArrowRight} from "../../theme/icons";
-import { projectData } from "../../theme/data";
+import { CardBorderSVG, Snowflake, GitHubIcon, ArrowLeft, ArrowRight} from "../../theme/icons.jsx";
+import { projectData2 } from "../../theme/data.jsx";
 import { useNavigate } from "react-router-dom";
 
 
 
 /* ─── Main Component ─────────────────────────────── */
-export default function ProjectView1() {
-  const p = projectData;
+export default function ProjectView2() {
+  const p = projectData2;
   const [activeThumb, setActiveThumb] = useState(0);
   const navigate = useNavigate();
 
 
   return (
     <section id="project-view-1">
-      <SEO title="Know Your Trash" />
+      <SEO title="How To Swim Your Fish" />
       <div className="pv-root">
 
         {/* ── Back to Projects link ── */}

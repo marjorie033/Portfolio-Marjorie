@@ -42,8 +42,8 @@ function ProjectCard({ project, index }) {
       <CardBorderSVG />
 
       <div
-        className="relative flex flex-col font-surgena"
-        style={{ padding: "5% 7% 8% 7%" }}
+        className="relative flex flex-col font-halfre"
+        style={{ padding: "8% 8% 8% 8%" }}
       >
         {/* 👻 ── IMAGE ── */}
         <div className="relative w-full border-[4.5px] border-[#E7E0CA] bg-[#F8F4F0]">
@@ -124,7 +124,7 @@ setActiveLink(label);
       <section className="hero-section relative bg-[#FFF] flex flex-col items-center justify-between px-4 sm:px-6 font-surgena">
 
         {/* Spacer */}
-        <div className="h-8 sm:h-16 md:h-[100px] w-full shrink-0" />
+        <div className="h-8 sm:h-16 md:h-[60px] w-full shrink-0" />
 
         {/* Decorative snowflakes */}
         <Snowflake color="#15141F" size={16} className="deco-snowflake absolute top-6 left-[18%]" />
@@ -146,10 +146,10 @@ setActiveLink(label);
           <div className="hero-cat-wrap drop-shadow-sm mx-auto translate-x-3">
             <CatIllustration />
           </div>
-          <div
+          {/* <div
             className="rounded-full bg-[#595959] opacity-30 -mt-2 mx-auto"
             style={{ width: "80%", maxWidth: "180px", height: "14px" , alignItems: "center", display: "flex", justifyContent: "center"}}
-          />
+          /> */}
         </div>
 
         {/* ── Filter Nav (sticky) ── */}
@@ -159,10 +159,10 @@ setActiveLink(label);
   <button
     key={label}
     onClick={() => handleNavClick(label)}
-    className={`whitespace-nowrap text-sm md:text-base font-surgena transition-all duration-200 pb-1 cursor-pointer shrink-0 ${
+    className={`whitespace-nowrap text-sm md:text-base font-halfre transition-all duration-200 pb-1 cursor-pointer shrink-0 ${
       activeLink === label
-        ? "text-[#15141F] font-bold border-b-2 border-[#FFD341]"
-        : "text-[#15141F]/50 hover:text-[#15141F]/80"
+        ? "text-[#15141F]  border-b-3 border-[#FFD341]"
+        : "text-[#15141F]/50 hover:text-[#15141F]/80 border-[#FFD341]"
     }`}
   >
     <span className="sm:hidden">{short}</span>

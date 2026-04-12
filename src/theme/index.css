@@ -1,13 +1,18 @@
-/* ── Google Fonts ─────────────────────────────────────────────────────────────
-   Add this to your index.html <head>:
-   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
-───────────────────────────────────────────────────────────────────────────── */
 /*import '../theme/index.css' */
-
+/* 👻 Theme */
+/* 👻 About Me*/
+/*👻 Home*/
+/* 👻 Contact Section */
+/* 👻Tools Section*/
+/* 👻 Projects Page */
+/* 👻 Contact Me */
+/* 👻 SECTION 1 */
+/* 👻 SECTION 2 */
+/* 👻 Project Pages */
 
 @import "tailwindcss";
 
-
+/* 👻 Theme */
 .no-select {
   -webkit-user-select: none; /* Safari */
   -moz-user-select: none;    /* Firefox */
@@ -17,8 +22,8 @@
 
 /* Default cursor */
 :root {
-  --default-cursor: url('src/assets/icons/hk-cursor.ico'), auto;
-  --pointer-cursor: url('src/assets/icons/hk-cursor.ico'), pointer;
+  --default-cursor: url('public/hk-cursor.ico'), auto;
+  --pointer-cursor: url('public/hk-cursor.ico'), pointer;
 }
 
 html, body {
@@ -32,7 +37,6 @@ a, button, [role="button"], input, select, label {
 p, span, h1, h2, h3, h4, h5, h6, textarea {
   cursor: var(--pointer-cursor);
 }
-
 
 ::selection {
   background-color: #FFD341;
@@ -73,6 +77,7 @@ p, span, h1, h2, h3, h4, h5, h6, textarea {
 .font-surgena { font-family: 'Surgena', cursive; letter-spacing: -0.02em;line-height: 1; }
 
 
+/* ═══ 👻 About Me | Contact Section CSS ═══ */
 /* ── TABLET & MOBILE (≤900px) ── */
 @media (max-width: 900px) {
   .portfolio-outer {
@@ -138,7 +143,7 @@ p, span, h1, h2, h3, h4, h5, h6, textarea {
   transform: translateY(0) scale(1);
 }
 
-/* ═══ Home | Contact Section CSS ═══ */
+/* ═══ 👻 Home | Contact Section CSS ═══ */
 
  .contact-svg-desktop,
         .contact-svg-mobile {
@@ -159,7 +164,7 @@ p, span, h1, h2, h3, h4, h5, h6, textarea {
         }
 
 
-/* ═══ Home | Tools Section CSS ═══ */
+/* ═══ 👻 Home | Tools Section CSS ═══ */
 
 @keyframes float {
           0%,100% { transform: translateY(0);    }
@@ -225,13 +230,11 @@ p, span, h1, h2, h3, h4, h5, h6, textarea {
 
 
 
-/* ═══ Projects Page CSS ═══ */
-
+/* ═══ 👻 Projects Page CSS ═══ */
 /* ── Global smooth scroll ── */
+
         html { scroll-behavior: smooth; }
-
         /* ── Card reveal handled inline via JS state ── */
-
         /* ── Bounce for scroll hint ── */
         @keyframes bounce {
           0%, 100% { transform: translateX(-50%) translateY(0); }
@@ -309,7 +312,7 @@ p, span, h1, h2, h3, h4, h5, h6, textarea {
 
 
 
-/* ═══ Contact Me Page CSS ═══ */
+/* ═══ 👻 Contact Me Page CSS ═══ */
 
         .cp-scroll {
           height: 100vh;
@@ -327,7 +330,7 @@ p, span, h1, h2, h3, h4, h5, h6, textarea {
           overflow: hidden;
         }
 
-        /* ═══ SECTION 1 ═══ */
+        /* ═══ 👻 SECTION 1 ═══ */
         .cp-s1 {
           background: #ffffff;
           display: flex;
@@ -400,7 +403,7 @@ p, span, h1, h2, h3, h4, h5, h6, textarea {
         /* Footer bar — cat bottom edge sits flush here */
         .cp-footer-bar { height: 44px; background: #15141F; flex-shrink: 0; }
 
-        /* ═══ SECTION 2 ═══ */
+        /* ═══ 👻 SECTION 2 ═══ */
         .cp-s2 {
           background: #15141F;
           display: flex; align-items: center; justify-content: center;
@@ -578,11 +581,294 @@ p, span, h1, h2, h3, h4, h5, h6, textarea {
         }
      
 
+/* ── 👻 Project Pages ─────────────────────────────────────────────────────── */
+/* ── Project 1 pages ─────────────────────────────────────────────────────── */
+.pv-root {
+          min-height: 100vh;
+          background: #ffffff;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding: 100px 32px 60px 32px;
+          font-family: 'Halfre', serif;
+        }
+
+        /* ── BACK LINK ── */
+        .pv-back-wrapper {
+          width: 100%;
+          max-width: 1100px;
+          margin-bottom: 24px;
+        }
+
+        .pv-back {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          font-family: 'Halfre', serif;
+          font-size: 18px;
+          font-weight: 700;
+          color: #44220F;
+          text-decoration: none;
+          letter-spacing: 0.3px;
+          padding: 8px 0;
+          transition: opacity 0.2s, gap 0.2s;
+        }
+        .pv-back:hover {
+          opacity: 0.6;
+          gap: 12px;
+        }
+
+        .pv-layout {
+          display: flex;
+          gap: 40px;
+          align-items: flex-start;
+          width: 100%;
+          max-width: 1100px;
+        }
+
+        /* ── LEFT PANEL ── */
+        .pv-left {
+          flex: 0 0 440px;
+          position: relative;
+          max-width: 540px;
+        }
+
+        .pv-card-inner {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          padding: 11% 9% 14% 9%;
+        }
+
+        .pv-deco-row {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 16px;
+        }
+
+        .pv-main-img {
+          width: 100%;
+          aspect-ratio: 4/3;
+          object-fit: cover;
+          border: 4.5px solid #E7E0CA;
+          background: #F8F4F0;
+          display: block;
+        }
+
+        .pv-thumbnails {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 8px;
+          margin-top: 14px;
+        }
+
+        .pv-thumb {
+          aspect-ratio: 1;
+          object-fit: cover;
+          border: 3px solid transparent;
+          cursor: inherit;
+          transition: border-color 0.2s, opacity 0.2s;
+          opacity: 0.65;
+          background: #F8F4F0;
+        }
+        .pv-thumb.active,
+        .pv-thumb:hover {
+          border-color: #FFD341;
+          opacity: 1;
+        }
+
+        .pv-btn-row {
+          display: flex;
+          gap: 12px;
+          margin-top: 20px;
+        }
+
+        .pv-btn {
+          flex: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          padding: 13px 0;
+          font-size: 13px;
+          font-weight: 700;
+          border: none;
+          cursor: inherit;
+          transition: opacity 0.2s, transform 0.15s;
+          font-family: 'Halfre', serif;
+          letter-spacing: 0.3px;
+        }
+        /* .pv-btn:hover { opacity: 0.9; transform: translateY(-1px); } */
+
+        .pv-btn-gh {
+          background: #15141F;
+          color: #ffffff;
+        }
+
+        .pv-btn-gh:hover {
+         border: 3px solid #FFD341;
+         background: #15141F;
+         transform: translateY(-2px);
+        }
+
+        .pv-btn-live {
+          background: #FFD341;
+          color: #15141F;
+        }
+
+        .pv-btn-live:hover {
+          border: 3px solid #15141F;
+          background: #FFD341;
+          transform: translateY(-2px);
+        }
+
+        /* ── RIGHT PANEL ── */
+        .pv-right {
+          flex: 1;
+          background: #F1EAE9;
+          border-radius: 18px;
+          padding: 44px 44px 44px 44px;
+          display: flex;
+          flex-direction: column;
+          gap: 22px;
+          min-height: 480px;
+        }
+
+        .pv-title {
+          font-family: 'Oslla', serif;
+          font-size: clamp(28px, 3.5vw, 42px);
+          font-weight: 800;
+          color: #15141F;
+          letter-spacing: -0.5px;
+          line-height: 1.1;
+          text-transform: uppercase;
+        }
+
+        .pv-subtitle {
+          font-size: 14px;
+          color: #555;
+          margin-top: 4px;
+          font-weight: 500;
+          font-family: 'Halfre', serif;
+        }
+
+        .pv-tags {
+          display: flex;
+          gap: 10px;
+          flex-wrap: wrap;
+        }
+
+        .pv-tag {
+          background: #FFD341;
+          color: #15141F;
+          font-size: 13px;
+          font-weight: 700;
+          padding: 7px 18px;
+          border-radius: 999px;
+        }
+
+        .pv-desc {
+          font-size: 14px;
+          color: #333;
+          line-height: 1.75;
+          max-width: 560px;
+          font-family: 'Halfre', serif;
+        }
+
+        /* meta grid */
+        .pv-meta {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 10px;
+        }
+
+        .pv-meta-cell {
+          background: #E7E0CA;
+          border-radius: 10px;
+          padding: 14px 16px;
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+        }
+
+        .pv-meta-label {
+          font-size: 11px;
+          color: #44220F;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          font-family: 'Halfre', serif;
+        }
+
+        .pv-meta-value {
+          font-size: 14px;
+          font-weight: 700;
+          color: #44220F;
+        }
+
+        /* technologies */
+        .pv-tech-heading {
+          font-size: 18px;
+          font-weight: 700;
+          color: #15141F;
+          font-family: 'Halfre', serif;
+        }
+
+        .pv-tech-pills {
+          display: flex;
+          gap: 10px;
+          flex-wrap: wrap;
+        }
+
+        .pv-tech-pill {
+          background: #15141F;
+          color: #E7E0CA;
+          font-size: 13px;
+          font-weight: 600;
+          padding: 10px 22px;
+          border-radius: 8px;
+          letter-spacing: 0.2px;
+        }
+
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translateY(20px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        .pv-right > * {
+          animation: fadeInUp 0.5s cubic-bezier(0.16,1,0.3,1) both;
+        }
+        .pv-right > *:nth-child(1) { animation-delay: 0.05s; }
+        .pv-right > *:nth-child(2) { animation-delay: 0.10s; }
+        .pv-right > *:nth-child(3) { animation-delay: 0.15s; }
+        .pv-right > *:nth-child(4) { animation-delay: 0.20s; }
+        .pv-right > *:nth-child(5) { animation-delay: 0.25s; }
+        .pv-right > *:nth-child(6) { animation-delay: 0.30s; }
+
+        @media (max-width: 768px) {
+          .pv-layout { flex-direction: column; }
+          .pv-left { flex: none; width: 100%; }
+          .pv-meta { grid-template-columns: repeat(2, 1fr); }
+          .pv-right { padding: 28px 22px; }
+        }
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+________________________________________________________________________________
 /* ── CSS Variables ───────────────────────────────────────────────────────── */
 :root {
   --bg: #15141F;

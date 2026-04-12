@@ -328,6 +328,8 @@ function PhotoBlock({ diameter, isMobile, isTablet }) {
     { label: 'Game Dev', x: isMobile ? '-4%'  : '-8%', y: isMobile ? '8%'  : '14%', delay: '0s'   },
     { label: 'UI/UX',   x: isMobile ? '72%'  : '80%', y: isMobile ? '4%'  : '10%', delay: '0.3s' },
     { label: 'Web Dev', x: isMobile ? '68%'  : '76%', y: isMobile ? '72%' : '72%', delay: '0.6s' },
+    { label: 'Front End Dev',   x: isMobile ? '68%'  : '-8%', y: isMobile ? '72%'  : '72%', delay: '0.3s' },
+
   ]
 
   return (

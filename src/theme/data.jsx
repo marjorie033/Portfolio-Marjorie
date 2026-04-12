@@ -1,4 +1,19 @@
 // import { HeroBottomSVG } from "../theme/data";
+import knowyourtrash from "../assets/projects/know-your-trash.png";
+import knowyourtrashmain from "../assets/projects/kyt-main.png";
+import knowyourtrash2 from "../assets/projects/kyt-2.png";
+import knowyourtrash3 from "../assets/projects/kyt-3.png";
+import howtoswimyourfish from "../assets/projects/how-swim-your-fish.png";
+import howtoswimyourfish2 from "../assets/projects/how-swim-2.png";
+import howtoswimyourfish3 from "../assets/projects/how-swim-3.png";
+import howtoswimyourfish4 from "../assets/projects/how-swim-4.png";
+
+import anito from "../assets/projects/anito.png";
+import anito2 from "../assets/projects/anito2.png";
+import anito3 from "../assets/projects/anito3.png";
+import anito4 from "../assets/projects/anito5.png";
+
+
 
 // ── Home | Tools Section ─────────────────────────────────────────────────────────────
 export const tools = [
@@ -105,19 +120,153 @@ export const projectsData = [
     tags: "UI design - User research - Godot Engine",
     image: "src/assets/projects/how-swim-your-fish.png",
     description: "A quirky puzzle platformer where you guide a fish through obstacle-filled waters to safety.",
+    path: "/project/how-to-swim-your-fish"
+  },
+  {
+    title: "Anito",
+    category: "Game",
+    tags: "UI designer - Lead Artist - Unity Engine",
+    image: "src/assets/projects/anito.png",
+    description: "A quirky puzzle platformer where you guide a fish through obstacle-filled waters to safety.",
+    path: "/project/anito"
+  },
+  {
+    title: "Thiana Guerra Photography",
+    category: "Web",
+    tags: "Web Developer - Layout - Wordpress",
+    image: "src/assets/projects/thiana.png",
+    description: "A music discovery website with an editorial layout designed to surface hidden gems and new sounds.",
+    // path: "/project/thiana-guerra-photography"
+  },
+  {
+    title: "Nature Spring Foundation",
+    category: "Web",
+    tags: "Web Developer/Designer - Wordpress",
+    image: "src/assets/projects/nsf.png",
+    description: "A music discovery website with an editorial layout designed to surface hidden gems and new sounds.",
+    // path: "/project/nature-spring-foundation"
   },
   {
     title: "Curious Music",
     category: "Web",
-    tags: "Web Design - Layout - HTML/CSS",
-    image: "src/assets/projects/curious-music.png",
+    tags: "Web Developer/Designer - Wordpress",
+    image: "src/assets/projects/curious.png",
     description: "A music discovery website with an editorial layout designed to surface hidden gems and new sounds.",
+    // path: "/project/curious-music"
+  },
+  {
+    title: "It's Hotdog Time",
+    category: "Web",
+    tags: "Web Developer/Designer - Layout - Wordpress",
+    image: "src/assets/projects/itshotdogtime.png",
+    description: "A music discovery website with an editorial layout designed to surface hidden gems and new sounds.",
+    // path: "/project/it's-hotdog-time"
   },
   {
     title: "Whaloo",
     category: "Mobile",
-    tags: "Mobile Dev - UI/UX - Flutter",
+    tags: "Mobile Front-End - UI/UX - Flutter",
     image: "src/assets/projects/whaloo.png",
     description: "A mobile app that helps users track and manage their daily hydration habits with gentle nudges.",
+    // path: "/project/whaloo"
+  },
+  {
+    title: "RemGlove",
+    category: "Mobile",
+    tags: "Mobile Front-End - Thesis Project - Flutter",
+    image: "src/assets/projects/remgloves.png",
+    description: "A mobile app that helps users track and manage their daily hydration habits with gentle nudges.",
+    // path: "/project/remgloves"
   },
 ];
+
+/* ─── Projects Pages ───────────────────────────────────────── */
+/* ─── Know  Your Trash ─────────────────────────── */
+export const projectData = {
+  title: "Know Your Trash",
+  subtitle: "Interactive Game Development",
+  tags: ["2D Pixelated", "Deployed"],
+  description:
+    "A sorting game that teaches players to classify waste correctly through fun, fast-paced gameplay. Designed with bright, readable UI and progressive difficulty to keep players engaged while learning proper waste segregation habits.",
+  meta: [
+    { label: "Date", value: "February 2026" },
+    { label: "Type", value: "Game App" },
+    { label: "Role", value: "Designer" },
+    { label: "Status", value: "Live" },
+  ],
+  technologies: [
+    { name: "Unity", color: "#15141F" },
+    { name: "C#", color: "#15141F" },
+    { name: "Figma", color: "#15141F" },
+    { name: "Aseprite", color: "#15141F" },
+  ],
+  mainImage: knowyourtrashmain,
+  thumbnails: [
+    knowyourtrashmain,
+    knowyourtrash2,
+    knowyourtrash3,
+    knowyourtrash,
+  ],
+  github: "https://github.com/marjorie033",
+  liveUrl: "https://settery.itch.io/know-your-trash",
+};
+
+/* ─── How To Swim Your Fish ─────────────────────────── */
+export const projectData2 = {
+  title: "How To Swim Your Fish",
+  subtitle: "Interactive Game Development",
+  tags: ["2D Pixelated", "Deployed"],
+  description:
+    "A sorting game that teaches players to classify waste correctly through fun, fast-paced gameplay. Designed with bright, readable UI and progressive difficulty to keep players engaged while learning proper waste segregation habits.",
+  meta: [
+    { label: "Date", value: "February 2026" },
+    { label: "Type", value: "Game App" },
+    { label: "Role", value: "Designer" },
+    { label: "Status", value: "Live" },
+  ],
+  technologies: [
+    { name: "Unity", color: "#15141F" },
+    { name: "C#", color: "#15141F" },
+    { name: "Figma", color: "#15141F" },
+    { name: "Aseprite", color: "#15141F" },
+  ],
+  mainImage: howtoswimyourfish2,
+  thumbnails: [
+    howtoswimyourfish2,
+    howtoswimyourfish3,
+    howtoswimyourfish,
+    howtoswimyourfish4,
+  ],
+  github: "https://github.com/marjorie033",
+  liveUrl: "https://settery.itch.io/know-your-trash",
+};
+
+/* ─── 👻 Anito Page ─────────────────────────── */
+export const projectData3 = {
+  title: "Anito",
+  subtitle: "Interactive Game Development",
+  tags: ["2D Pixelated", "Deployed"],
+  description:
+    "A sorting game that teaches players to classify waste correctly through fun, fast-paced gameplay. Designed with bright, readable UI and progressive difficulty to keep players engaged while learning proper waste segregation habits.",
+  meta: [
+    { label: "Date", value: "August 2025" },
+    { label: "Type", value: "Game App" },
+    { label: "Role", value: "Designer" },
+    { label: "Status", value: "Live" },
+  ],
+  technologies: [
+    { name: "Unity", color: "#15141F" },
+    { name: "C#", color: "#15141F" },
+    { name: "Figma", color: "#15141F" },
+    { name: "Aseprite", color: "#15141F" },
+  ],
+  mainImage: anito,
+  thumbnails: [
+    anito,
+    anito2,
+    anito3,
+    anito4,
+  ],
+  github: "https://github.com/marjorie033",
+  liveUrl: "https://settery.itch.io/know-your-trash",
+};
