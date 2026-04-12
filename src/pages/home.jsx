@@ -5,37 +5,14 @@ import ProjectsSection from './projects-section.jsx'
 import ContactSection from './contact-section.jsx'
 import FloatingStar from '../theme/svgs.jsx'
 import { useTransition } from '../theme/page-transition.jsx'
+import SEO from '../widgets/SEO.jsx'
+import { HeroBottomSVG } from "../theme/icons";
+
 
 /* ── Responsive breakpoints ───────────────────────────────────────────────── */
 // mobile  : < 640px
 // tablet  : 640px – 1023px
 // desktop : ≥ 1024px
-
-/* ── Cat ear divider ─────────────────────────────────────────────────────── */
-const HeroBottomSVG = () => (
-  <svg
-    width="100%"
-    viewBox="0 0 1440 291"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    preserveAspectRatio="none"
-    style={{ display: 'block' }}
-  >
-    <rect x="0" y="180" width="1440" height="111" fill="#15141F" />
-    <path
-      d="M356.79 224.638C268.091 220.42 181.177 225.792 107.219 249.025C33.6832 272.126 -27.0679 312.893 -64.0042 379.46L0.74059 0.821178L356.79 224.638Z"
-      fill="#15141F" stroke="#15141F"
-    />
-    <path
-      d="M1083.18 224.638C1171.87 220.42 1258.79 225.792 1332.75 249.025C1406.28 272.126 1467.03 312.893 1503.97 379.46L1439.23 0.821178L1083.18 224.638Z"
-      fill="#15141F" stroke="#15141F"
-    />
-    <path
-      d="M356.79 224.638 Q720 140 1083.18 224.638 L1083.18 291 L356.79 291 Z"
-      fill="#15141F"
-    />
-  </svg>
-)
 
 /* ── Responsive hook ─────────────────────────────────────────────────────── */
 function useBreakpoint() {
@@ -80,8 +57,10 @@ export default function Home() {
   const descSize      = isMobile ? 15 : 17
 
   return (
+    
     <div style={{ background: '#15141F', minHeight: '100vh' }}>
-
+      <SEO title="Home" />
+      <div>{/* Your home content */}</div>
       {/* ── HERO ───────────────────────────────────────────────────────────── */}
       <section
         id="about"
@@ -121,7 +100,7 @@ export default function Home() {
             maxWidth: isDesktop ? 1200 : '100%',
             margin: '0 auto',
             padding: isMobile
-              ? '40px 24px 60px'
+              ? '40px 24px 50px'
               : isTablet
               ? '60px 48px 200px'
               : '60px 64px 200px 64px',

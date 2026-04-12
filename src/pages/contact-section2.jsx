@@ -1,40 +1,9 @@
 import React from 'react'
 import FloatingStar from '../theme/svgs.jsx'
 import { useTransition } from '../theme/page-transition.jsx';
+import '../theme/index.css'
 
 // ── Contact + Footer Section ──────────────────────────────────────────────────
-
-const CatBottomTailSVG = () => (
-  <svg
-    width="100%"
-    height="100%"
-    viewBox="0 0 1440 1024"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    preserveAspectRatio="xMidYMid slice"
-    style={{ display: 'block', position: 'absolute', inset: 0 }}
-  >
-    <rect width="1440" height="1024" fill="#FFFFFF" />
-    <path
-      d="M1439 0H1C0.447715 0 0 0.447718 0 1V91.0851C0 91.5117 0.280654 91.8948 0.683888 92.0339C552.264 282.299 867.176 288.321 1439.31 92.0333C1439.72 91.8947 1440 91.511 1440 91.0839V1C1440 0.447715 1439.55 0 1439 0Z"
-      fill="#15141F" stroke="#15141F"
-    />
-    <path
-      d="M36.2394 236.465C83.7035 187.712 175.28 133.991 181.768 130.212C182.02 130.065 182.287 130.054 182.562 130.15C296.99 170.116 447.456 203.486 581.05 215.969C582.16 216.072 582.349 217.662 581.279 217.973C546.826 227.958 352.833 287.044 273.315 373.421C205.497 447.088 140.831 537.868 140.831 640.335C140.831 726.925 128.755 771.292 206.805 818.277C328.912 891.784 507.367 791.066 651.992 776.5C791 762.5 927 909.5 1048.5 851C1170 792.5 1056.5 717.324 1056.5 673C1056.5 621.017 1097.5 591.835 1163.5 609C1229.5 626.165 1312.04 720.461 1338.5 786.5C1370.15 865.474 1299.54 998.219 1181 1023.71C997.877 1063.09 839.924 993.416 651.992 994.5C474.526 995.524 198.979 1109.11 47 1023.71C-101.199 940.437 -26.5555 753.596 -53.8708 594.35C-78.4001 451.345 -68.1812 343.722 36.2394 236.465Z"
-      fill="#15141F" stroke="#15141F"
-    />
-  </svg>
-)
-
-const Star = ({ color, size, style }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={style}>
-    <path
-      d="M12 2L13.5 10.5L22 12L13.5 13.5L12 22L10.5 13.5L2 12L10.5 10.5L12 2Z"
-      fill={color}
-    />
-  </svg>
-)
-
 
 
 export default function ContactSection2() {
@@ -47,8 +16,6 @@ export default function ContactSection2() {
         style={{
           position: 'relative',
           overflow: 'hidden',
-          // Height driven by the SVG's natural aspect ratio (1024/1440 ≈ 71%)
-          // paddingTop trick keeps the white-blob area proportional on all screens
           minHeight: 'clamp(420px, 56vw, 720px)',
           display: 'flex',
           alignItems: 'center',

@@ -1,68 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
-
-// ── Cat Paw SVG ───────────────────────────────────────────────────────────────
-
-const CatPawSVG = ({ style }) => (
-  <svg style={style} viewBox="0 0 320 683" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M1.73318 81.5521C1.07148 53.1171 26.7193 29.4568 59.0192 28.7051C76.4746 28.2989 92.2998 34.667 103.264 45.0933C107.65 43.5344 112.148 42.1657 116.743 40.9964C125.92 24.2109 142.939 12.7485 162.665 12.2894C185.155 11.7661 204.795 25.6932 213.592 46.0162C215.802 46.873 217.98 47.7831 220.123 48.7448C228.928 40.5676 240.478 35.4855 253.223 35.1889C281.658 34.5272 305.266 57.9371 305.953 87.4763C306.346 104.33 299.191 119.537 287.693 129.614C289.686 138.192 290.841 147.279 291.063 156.841C291.587 179.369 286.856 200.761 278.024 219.777L288.653 676.538L46.7182 682.168L36.0881 225.361C26.0897 206.795 20.1603 185.667 19.6365 163.158C19.2902 148.274 21.3442 134.433 25.4254 121.779C11.3714 112.685 2.11914 98.1382 1.73318 81.5521Z" fill="#15141F"/>
-    <path d="M53.195 14.8368C59.2685 14.6954 64.3941 23.2648 64.4712 26.5776C64.5483 29.8904 59.6873 32.6906 53.6138 32.8319C47.5403 32.9732 42.5543 30.4022 42.4772 27.0894C42.4001 23.7766 47.1215 14.9781 53.195 14.8368Z" fill="white"/>
-    <path d="M162.956 3.28014C169.029 3.13881 174.155 11.7082 174.232 15.021C174.309 18.3338 169.448 21.1339 163.375 21.2753C157.301 21.4166 152.315 18.8456 152.238 15.5328C152.161 12.22 156.882 3.42147 162.956 3.28014Z" fill="white"/>
-    <path d="M277.592 28.1442C283.359 30.0537 285.305 39.8477 284.263 42.9934C283.221 46.1392 277.702 47.1414 271.935 45.232C266.167 43.3225 262.336 39.2244 263.378 36.0787C264.419 32.9329 271.825 26.2347 277.592 28.1442Z" fill="white"/>
-  </svg>
-)
-
-// ── Projects data ─────────────────────────────────────────────────────────────
-const projects = [
-  {
-    title: 'Know Your Trash',
-    description: 'An educational game about waste segregation, featuring intuitive gameplay that teaches players to properly sort trash. Served as Lead Artist, responsible for the game’s visual style and assets.',
-    tags: ['Lead Artist', 'Unity'],
-    status: 'Live',
-    date: 'February 2026',
-    accent: '#FFD341',
-    image: 'src/assets/projects/know-your-trash.png',
-    link: 'https://settery.itch.io/know-your-trash',
-  },
-  {
-    title: 'How to Swim your Fish',
-    description: 'A fun underwater adventure game where players navigate a fish through obstacles and challenges. Served as Lead Artist, creating characters, environments, and visual assets',
-    tags: ['Wire Framming', 'Godot', 'Lead Artist'],
-    status: 'Live',
-    date: 'February 2026',
-    accent: '#7C6EEA',
-    image: 'src/assets/projects/how-swim-your-fish.png',
-    link: 'https://settery.itch.io/how-to-swim-your-fish',
-  },
-  {
-    title: 'Thiana Guerra Photography',
-    description: 'Contributed as the WordPress designer/dev for Thiana Guerra Photography, where I improved the overall user experience (UX) and developed all secondary pages. Worked alongside a senior developer responsible for the homepage and deployment.',
-    tags: ['Wordpress', 'Web Designer/Developer'],
-    status: 'Live',
-    date: 'January 2026',
-    accent: '#D85662',
-    image: 'src/assets/projects/thiana.png',
-    link: 'https://thianaguerraphoto.com/',
-  },
-  {
-    title: 'Nature Spring Foundation',
-    description: 'Contributed as a WordPress designer for the Nature’s Spring Foundation website, focusing on UI design, Responsiveness and layout, in collaboration with a senior developer responsible for deployment and publishing.',
-    tags: ['Wordpress', 'Web Designer/Developer'],
-    status: 'Live',
-    date: 'January 2026',
-    accent: '#FFD341',
-    image: 'src/assets/projects/nsf.png',
-    link: 'https://naturespringfoundation.org/',
-  },
-  {
-    title: 'Anito',
-    description: 'A Filipino mythology-inspired game where players guide a mortal child through a mystical world. Lead Artist and UI/UX designer creating characters and environments in Unity.',
-    tags: ['Wire Framming', 'Unity', 'Lead Artist'],
-    status: 'In Development',
-    date: 'December 2025',
-    accent: '#7C6EEA',
-    image: 'src/assets/projects/anito.png',
-  },
-]
+import { CatPawSVG } from "../theme/icons";
+import '../theme/index.css'
+import { projects } from "../theme/data";
 
 // ── Project Card ──────────────────────────────────────────────────────────────
 
@@ -369,38 +308,6 @@ const sectionRef = useRef(null)
             </div>
           )}
         </div>
-
-        {/* Progress dots */}
-        {/* <div style={{
-          display: 'flex',
-          gap: 8,
-          marginTop: 36,
-          position: 'relative',
-          zIndex: 10,
-        }}>
-          {projects.map((_, i) => (
-            <div key={i} style={{
-              width: i === topIndex ? 24 : 8,
-              height: 8,
-              borderRadius: 99,
-              background: i === topIndex ? '#FFD341' : 'rgba(255,255,255,0.2)',
-              transition: 'all 0.3s ease',
-            }} />
-          ))}
-        </div> */}
-
-        {/* Scroll hint — only shows on first card */}
-        {/* {topIndex === 0 && phase !== 'dragging' && (
-          <p className="font-halfre" style={{
-            color: 'rgba(255,255,255,0.35)',
-            fontSize: 13,
-            marginTop: 20,
-            letterSpacing: 1,
-            animation: 'fadeUp 1s 0.5s both',
-          }}>
-            scroll to browse ↓
-          </p>
-        )} */}
       </div>
     </section>
   )

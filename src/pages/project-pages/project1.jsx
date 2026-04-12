@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SEO from '../../widgets/SEO.jsx'
 
 
 /* ─── Snowflake / Asterisk decorations ──────────── */
@@ -88,7 +89,7 @@ export default function ProjectView1() {
 
   return (
     <>
-      
+      <SEO title="Know Your Trash" />
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; }
