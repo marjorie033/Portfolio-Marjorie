@@ -1,9 +1,6 @@
 import { useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { DotLottieReact } from '@lottiefiles/dotlottie-react'
-import { setWasmUrl } from '@lottiefiles/dotlottie-web'
-
-setWasmUrl("/dotlottie-player.wasm")
 
 
 export default function LoadingScreen({ onComplete }) {
@@ -38,6 +35,9 @@ export default function LoadingScreen({ onComplete }) {
         src="/loading-anim.json"
         loop
         autoplay
+        dotLottieRefCallback={(dotLottie) => {
+          if (dotLottie) dotLottie.setWasmUrl("/dotlottie-player.wasm")
+        }}
         style={{ width: "300px", height: "300px" }}
       />
       
