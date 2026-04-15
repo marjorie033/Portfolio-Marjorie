@@ -31,6 +31,15 @@ export const experiences = [
     tag1: "Junior Web Developer",
     tag2: "Junior Web Designer",
   },
+    {
+    img: "src/assets/experience/icpep.png",
+    expTitle: "ICPEP",
+    expRole: "July 21 - March 2025",
+    expDesc:
+      "Lorem ipsum dolor sit amet consectetur. Aliquam duis donec condimentum euismod nec ipsum et sed purus. Et urna id purus eu nullam ut amet mauris posuere. Sed enim odio blandit risus aliquet.",
+    tag1: "Junior Web Developer",
+    tag2: "Junior Web Designer",
+  },
 ];
 
 export const educations = [
@@ -52,7 +61,7 @@ export const educations = [
   },
   {
     img: "src/assets/education/uc-logo.jpg",
-    school: "University of Cebu — Banilad Campus (M)",
+    school: "University of Cebu — METC",
     years: "2016 - 2017",
     degree: "Junior High School",
     desc: "Lorem ipsum dolor sit amet consectetur. Aliquam duis donec condimentum euismod nec ipsum et sed purus.",

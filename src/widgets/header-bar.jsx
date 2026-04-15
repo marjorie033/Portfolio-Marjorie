@@ -33,7 +33,7 @@ export default function Header() {
     setCompact(false);
 
     const timeoutId = setTimeout(() => {
-      const ids = ['contact', 'projects', 'tools', 'project-view-1'];
+      const ids = ['contact', 'projects', 'tools', 'project-view-1', ];
       const targets = ids.map(id => document.getElementById(id)).filter(Boolean);
       if (targets.length === 0) return;
 

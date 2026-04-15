@@ -9,27 +9,33 @@ export default function AboutPanel({ visible, isMobile = false, setSelectedCert 
     "src/assets/images/devfest.png",
     "src/assets/images/ferret-coc.png",
     "src/assets/images/website-hosting.png",
-    // add more paths
+    "src/assets/images/ICpEP-Regional-Convention.jpg",
+    "src/assets/images/MATILOS.png",
+    "src/assets/images/coc.jpg"
   ];
 
   // const [visibleCount, setVisibleCount] = useState(0);
   const certsRef = useRef(null);
 
 const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
-const isAllShown = visibleCount >= certPaths.length && certPaths.length > PAGE_SIZE;
+const hasMore = visibleCount < certPaths.length;
+const isAllShown = !hasMore;
 
-  const handleToggle = () => {
-    if (isAllShown) {
-      setVisibleCount(PAGE_SIZE);
+const handleToggle = () => {
+  if (isAllShown) {
+    setVisibleCount(PAGE_SIZE);
+    // Scroll after the DOM collapses
+    setTimeout(() => {
       certsRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
-    } else {
-      setVisibleCount((prev) => Math.min(prev + PAGE_SIZE, certPaths.length));
-    }
-  };
+    }, 50);
+  } else {
+    setVisibleCount((prev) => Math.min(prev + PAGE_SIZE, certPaths.length));
+  }
+};
 
-  const wrapStyle = isMobile
-    ? { display: "flex", flexDirection: "column", justifyContent: "center", minHeight: "100%", padding: "28px 24px 32px" }
-    : panelStyle(visible);
+const wrapStyle = isMobile
+  ? { display: "flex", flexDirection: "column", justifyContent: "center", minHeight: "100%", padding: "20px 24px 32px" }
+  : { ...panelStyle(visible), paddingTop: 0 };
 
   const resolvedHeadingStyle = isMobile
     ? { ...headingStyle, paddingTop: 0 }
@@ -120,7 +126,7 @@ const isAllShown = visibleCount >= certPaths.length && certPaths.length > PAGE_S
             e.currentTarget.style.transform = "scale(1)";
           }}
         >
-          {isAllShown ? "See Less" : "See More"}
+          {isAllShown ? "See Less" : "See More" }
         </button>
       </div>
     </div>

@@ -1,3 +1,5 @@
+import React, { useState, useEffect, useRef } from 'react';
+
 // ─── Icons ───────────────────────────────────────────────────────────────────
 
 // ─── Header Bar Menu ───────────────────────────────────────────────────────────────────
@@ -182,19 +184,50 @@ export const CatPawSVG = ({ style }) => (
 )
 
 // ── 👻 Home | Tools Section ──────────────────────────────────────────────────────────────
-export const EyeLeftSVG = () => (
+// export const EyeLeftSVG = () => (
+//   <svg viewBox="0 0 304 315" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%' }}>
+//     <ellipse cx="152" cy="157.5" rx="152" ry="157.5" fill="#FFD341"/>
+//     <ellipse cx="151.5" cy="157.5" rx="69.5" ry="101.5" fill="#15141F"/>
+//   </svg>
+// )
+
+// export const EyeRightSVG = () => (
+//   <svg viewBox="0 0 304 315" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%' }}>
+//     <ellipse cx="152" cy="157.5" rx="152" ry="157.5" fill="#FFD341"/>
+//     <ellipse cx="151.5" cy="157.5" rx="69.5" ry="101.5" fill="#15141F"/>
+//   </svg>
+// )
+
+export const EyeLeftSVG = ({ pupilStyle }) => (
   <svg viewBox="0 0 304 315" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%' }}>
     <ellipse cx="152" cy="157.5" rx="152" ry="157.5" fill="#FFD341"/>
-    <ellipse cx="151.5" cy="157.5" rx="69.5" ry="101.5" fill="#15141F"/>
+    <ellipse 
+      cx="151.5" cy="157.5" rx="69.5" ry="101.5" 
+      fill="#15141F" 
+      style={{ 
+        ...pupilStyle, 
+        transformBox: 'fill-box', 
+        transformOrigin: 'center' 
+      }} 
+    />
   </svg>
 )
 
-export const EyeRightSVG = () => (
+export const EyeRightSVG = ({ pupilStyle }) => (
   <svg viewBox="0 0 304 315" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%' }}>
     <ellipse cx="152" cy="157.5" rx="152" ry="157.5" fill="#FFD341"/>
-    <ellipse cx="151.5" cy="157.5" rx="69.5" ry="101.5" fill="#15141F"/>
+    <ellipse 
+      cx="151.5" cy="157.5" rx="69.5" ry="101.5" 
+      fill="#15141F" 
+      style={{ 
+        ...pupilStyle, 
+        transformBox: 'fill-box', 
+        transformOrigin: 'center' 
+      }} 
+    />
   </svg>
 )
+
 
 export const NoseSVG = () => (
   <svg viewBox="0 0 353 160" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%' }}>
@@ -212,14 +245,61 @@ export const MouthDesktopSVG = () => (
   </svg>
 ) 
 
+export const MouthDesktopClosedSVG = () => (
+<svg xmlns="http://www.w3.org/2000/svg" width="654" height="75" viewBox="0 0 654 75" fill="none">
+<rect y="18.024" width="654" height="34.2786" rx="17.1393" fill="#D85662"/>
+<path d="M63 52.3027L584 52.3027C418.501 46.3356 201.793 46.2466 63 52.3027Z" fill="#9A313B" stroke="#9A313B"/>
+<path d="M543.244 74.5306L504.342 18.6569L578.523 18.6309L543.244 74.5306Z" fill="white"/>
+<path d="M118.244 74.5306L79.3417 18.6569L153.523 18.6309L118.244 74.5306Z" fill="white"/>
+</svg>
+)
+
+
+// export const MouthDesktopSVG = ({ open }) => (
+//   <svg viewBox="0 0 1118 356" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%', display: 'block' }}>
+//     <defs>
+//       <clipPath id="mouth-clip">
+//         <rect
+//           x="0" y="25.4945" width="1118" rx="70"
+//           height={open ? 330 : 0}
+//           style={{ transition: 'height 0.9s cubic-bezier(0.34, 1.4, 0.64, 1)' }}
+//         />
+//       </clipPath>
+//     </defs>
+
+//     {/* Closed lip — always visible */}
+//     <rect x="0" y="25.4945" width="1118" height="32" rx="16" fill="#9A313B"/>
+
+//     {/* Full mouth revealed as clip expands */}
+//     <g clipPath="url(#mouth-clip)">
+//       <rect y="25.4945" width="1118" height="330" rx="70" fill="#D85662"/>
+//       <path d="M1050.89 355.494L66.486 355.495C65.4814 355.495 65.0964 354.188 65.951 353.66C329.305 190.937 737.873 193.294 1051.34 353.615C1052.28 354.092 1051.93 355.494 1050.89 355.494Z" fill="#9A313B" stroke="#9A313B"/>
+//       <path d="M237.82 102.181L190.797 25.839L284.328 25.5242L237.82 102.181Z" fill="white"/>
+//       <path d="M883.343 102.676L836.32 26.3337L929.851 26.0188L883.343 102.676Z" fill="white"/>
+//     </g>
+
+//     {/* Top lip always on top */}
+//     <rect x="0" y="25.4945" width="1118" height="10" rx="8" fill="#9A313B"/>
+//   </svg>
+// )
+
 export const MouthMobileSVG = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="654" height="744" viewBox="0 0 654 744" fill="none" style={{ width: '100%', height: '100%', display: 'block' }}>
-    <rect y="23.5815" width="654" height="719.418" rx="70" fill="#D85662"/>
+  <svg xmlns="http://www.w3.org/2000/svg" width="654" height="1081" viewBox="0 0 654 1081" fill="none" style={{ width: '100%', height: '100%', display: 'block' }}>
+    <rect y="24" width="654" height="1000.72" rx="70" fill="#D85662"/>
     <path d="M581.658 743L65.0661 743C64.2301 743 63.7786 742.017 64.3004 741.364C202.684 568.139 417.589 570.644 582.36 741.294C582.972 741.928 582.539 743 581.658 743Z" fill="#9A313B" stroke="#9A313B"/>
     <path d="M125.145 94.5472L78.2709 24.2772L171.801 23.5908L125.145 94.5472Z" fill="white"/>
     <path d="M530.145 94.5501L483.271 24.2779L576.801 23.5915L530.145 94.5501Z" fill="white"/>
   </svg>
 )
+
+
+
+{/* <svg xmlns="http://www.w3.org/2000/svg" width="654" height="1081" viewBox="0 0 654 1081" fill="none">
+<rect y="34.2773" width="654" height="1045.72" rx="70" fill="#D85662"/>
+<path d="M581.739 1080L65.002 1080C64.1776 1080 63.7232 1079.04 64.2213 1078.38C202.63 895.837 417.643 898.478 582.459 1078.31C583.045 1078.95 582.607 1080 581.739 1080Z" fill="#9A313B" stroke="#9A313B"/>
+<path d="M125.145 137.431L78.2709 35.2884L171.801 34.2907L125.145 137.431Z" fill="white"/>
+<path d="M530.145 137.435L483.271 35.2894L576.801 34.2917L530.145 137.435Z" fill="white"/>
+</svg> */}
 
 // ── 👻 Home | Contact Section ──────────────────────────────────────────────────────────────
 export const CatBottomTailSVG = () => (

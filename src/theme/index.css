@@ -213,6 +213,11 @@ p, span, h1, h2, h3, h4, h5, h6, textarea {
         @media (max-width: 400px) {
           .tools-grid-mobile {
             grid-template-columns: repeat(2, 1fr);
+            gap: 5px;
+            top: 12%;
+            left: 8%;
+            right: 8%;
+            bottom: 18%;
           }
         }
 
@@ -963,14 +968,21 @@ nav {
   background: rgba(255, 255, 255, 0.07);
   border: 1.5px solid rgba(255, 255, 255, 0.12);
   border-radius: 12px;
-  padding: 16px 20px;
+  padding: 4px 3px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
   transition: transform 0.2s, background 0.2s;
   animation: toolPop 0.4s ease both;
 }
+
+/* .tool-card-mobile {
+  padding: 4px 3px;
+  gap: 4px;
+} */
+
+
 .tool-card:hover {
   transform: translateY(-4px) scale(1.05);
   background: rgba(255, 211, 65, 0.12);

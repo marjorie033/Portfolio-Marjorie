@@ -56,17 +56,28 @@ export default function PortfolioCard() {
   const leftExpDesc  = selectedEdu?.desc   ?? selectedExp?.expDesc  ?? null;
 
   // ── Desktop scroll ─────────────────────────────────────────────────────────
-  const handleDesktopScroll = (e) => {
-    const scrollTop = e.currentTarget.scrollTop;
-    const height    = e.currentTarget.clientHeight;
-    if (scrollTop < height * 0.6) {
-      setSection("about"); setActiveExpIdx(null); setActiveEduIdx(null);
-    } else if (scrollTop < height * 1.5) {
-      setSection("experiences"); setActiveEduIdx(null);
-    } else {
-      setSection("education"); setActiveExpIdx(null);
+const handleDesktopScroll = (e) => {
+  const scrollTop = e.currentTarget.scrollTop;
+  const height    = e.currentTarget.clientHeight;
+
+  if (scrollTop < height * 0.6) {
+    setSection("about");
+    setActiveExpIdx(null);
+    setActiveEduIdx(null);
+  } else if (scrollTop < height * 1.5) {
+    if (section !== "experiences") {
+      setSection("experiences");
+      setActiveEduIdx(null);
+      setActiveExpIdx(prev => prev !== null ? prev : 0);  // ← keep existing or default to 0
     }
-  };
+  } else {
+    if (section !== "education") {
+      setSection("education");
+      setActiveExpIdx(null);
+      setActiveEduIdx(prev => prev !== null ? prev : 0);  // ← keep existing or default to 0
+    }
+  }
+};
 
   // ── Mobile: eased slide animation ─────────────────────────────────────────
   const animateSlide = useCallback((targetIdx) => {
@@ -212,22 +223,23 @@ export default function PortfolioCard() {
                 <path d="M0 0H586C578.88 349.171 584.905 826.5 586 878C587.095 929.5 217.546 873.772 0 878C8.66129 535.119 8.49425 342.88 0 0Z" fill="#E7E0CA" />
               </svg>
 
-              <div style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", alignItems: "center", padding: "26px 22px 26px", paddingTop: "120px", height: "100%" }}>
-                <div style={{ width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: -10 }}>
-                  <AsteriskDeco size={22} />
-                  <div style={{ width: 22, height: 22, borderRadius: "50%", background: "#7B4A2D", zIndex: 1 }} />
-                  <FlowerDeco size={20} />
-                </div>
-                <div style={{ width: 210, height: 215, background: "#F8F4F0", borderRadius: 10, overflow: "hidden", boxShadow: "0 4px 14px rgba(0,0,0,0.10)" }}>
-                  <img key={leftImg} src={leftImg} alt="Profile" style={{ width: "100%", height: "100%", objectFit: "cover", animation: "fadeIn 0.4s ease" }} />
+              <div style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", alignItems: "center", padding: "26px 22px 26px", paddingTop: section === "about" ? "120px" : "80px", height: "100%", gap: section === "about" ? "12px" : "5px", justifyContent: section === "about" ? "center" : "flex-start",  }}>
+                <div style={{ width: "100%", display: "flex", justifyContent: "center", alignItems: "center", marginBottom: -10 }}>
+              <div style={{ width: 22, height: 22, borderRadius: "50%", background: "#7B4A2D", zIndex: 1 }} />
+              </div>
+                <div style={{ width: 210, height: 185, background: "#F8F4F0", borderRadius: 10, boxShadow: "0 4px 14px rgba(0,0,0,0.10)", padding: "0px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <div style={{ width: "100%", height: "100%", borderRadius: 6, overflow: "hidden" }}>
+                    <img key={leftImg} src={leftImg} alt="Profile" style={{ width: "100%", height: "100%", objectFit: "cover", animation: "fadeIn 0.4s ease" }} />
+                  </div>
                 </div>
                 <div style={{ alignSelf: "flex-end", marginRight: 4, marginTop: 6, color: "#2d2d5e", opacity: 0.7 }}>
-                  <FlowerDeco size={15} />
                 </div>
+                
                 <div style={{ alignSelf: "center", marginTop: 4, minHeight: "24px" }}>
                   {leftHashtags && <p className="font-halfre" style={{ margin: 0, fontSize: 13, fontWeight: 700, color: "#1a1a2e", textAlign: "center", animation: "fadeIn 0.3s ease" }}>{leftHashtags}</p>}
                 </div>
-                <div style={{ width: "100%", height: 1, background: "#c4bda8", margin: "12px 0" }} />
+                {/* <div style={{ width: "100%", height: 1, background: "#c4bda8", margin: "0px 0px", flexShrink: 0 }} /> */}
+                
                 <p key={leftName} className="font-surgena" style={{ margin: "0 0 3px", fontSize: 26, fontWeight: 800, color: "#1a1a2e", textAlign: "center", animation: "slideUp 0.35s ease" }}>{leftName}</p>
                 <p key={leftSubtitle} style={{ margin: "0 0 8px", fontSize: 12, color: "#555", textAlign: "center", animation: "slideUp 0.35s ease", minHeight: 18 }}>{leftSubtitle}</p>
                 {leftExpDesc && <p key={leftExpDesc} style={{ margin: "0 0 10px", fontSize: 11, color: "#444", textAlign: "center", lineHeight: 1.6, padding: "0 8px", animation: "slideUp 0.35s ease" }}>{leftExpDesc}</p>}
@@ -287,14 +299,25 @@ export default function PortfolioCard() {
               style={{ flex: 1, background: "#F1EAE9", borderRadius: 16, position: "relative", overflowY: "scroll", minHeight: "100vh" }}
             >
               <div style={{ height: "300%", position: "relative" }}>
-                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "33.333%" }}>
+                <div style={{ position: "absolute", top: 0, left: 0, right: 0, minHeight: "33.333vh" }}>
                   <AboutPanel visible={section === "about"} setSelectedCert={setSelectedCert} />
                 </div>
-                <div id="experiences" style={{ position: "absolute", top: "33.333%", left: 0, right: 0, height: "33.333%" }}>
-                  <ExperiencesPanel visible={section === "experiences"} activeIdx={activeExpIdx} onSelect={(idx) => { setActiveExpIdx(idx); setActiveEduIdx(null); }} />
+                <div id="experiences" style={{ position: "absolute", top: "33.333%", left: 0, right: 0, minHeight: "100vh" }}>
+                <ExperiencesPanel visible={section === "experiences"} activeIdx={activeExpIdx} 
+                  onSelect={(idx) => { 
+                    setActiveExpIdx(idx ?? 0);      // ← never null, fall back to 0
+                    setActiveEduIdx(null); 
+                  }} 
+                />
+
+                <div id="education" style={{ position: "absolute", top: "66.666%", left: 0, right: 0, minHeight: "33.333vh" }}>
+                <EducationPanel visible={section === "education"} activeIdx={activeEduIdx} 
+                  onSelect={(idx) => { 
+                    setActiveEduIdx(idx ?? 0);      // ← never null, fall back to 0
+                    setActiveExpIdx(null); 
+                  }} 
+/>
                 </div>
-                <div id="education" style={{ position: "absolute", top: "66.666%", left: 0, right: 0, height: "33.333%" }}>
-                  <EducationPanel visible={section === "education"} activeIdx={activeEduIdx} onSelect={(idx) => { setActiveEduIdx(idx); setActiveExpIdx(null); }} />
                 </div>
               </div>
             </div>
@@ -331,11 +354,9 @@ function MobileProfileCard({ leftImg, leftName, leftSubtitle, leftTag1, leftTag2
       <div style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", alignItems: "center", width: "100%" }}>
 
         {/* Decorative row */}
-        <div style={{ width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
-          <AsteriskDeco size={24} />
-          <div style={{ width: 24, height: 24, borderRadius: "50%", background: "#7B4A2D" }} />
-          <FlowerDeco size={22} />
-        </div>
+<div style={{ width: "100%", display: "flex", justifyContent: "center", alignItems: "center", zIndex: 1, marginBottom: -10 }}>
+  <div style={{ width: 24, height: 24, borderRadius: "50%", background: "#7B4A2D" }} />
+</div>
 
         {/* Profile image */}
         <div style={{ width: 200, height: 205, background: "#F8F4F0", borderRadius: 12, overflow: "hidden", boxShadow: "0 6px 24px rgba(0,0,0,0.13)" }}>
@@ -343,7 +364,6 @@ function MobileProfileCard({ leftImg, leftName, leftSubtitle, leftTag1, leftTag2
         </div>
 
         <div style={{ alignSelf: "flex-end", marginTop: 8, marginRight: 4, color: "#2d2d5e", opacity: 0.7 }}>
-          <FlowerDeco size={15} />
         </div>
 
         {/* Hashtags */}
@@ -365,7 +385,7 @@ function MobileProfileCard({ leftImg, leftName, leftSubtitle, leftTag1, leftTag2
           {leftSubtitle}
         </p>
 
-        {/* Description if any */}
+        {/* Description */}
         {leftExpDesc && (
           <p style={{ margin: "0 0 12px", fontSize: 12, color: "#444", textAlign: "center", lineHeight: 1.6, padding: "0 12px" }}>
             {leftExpDesc}

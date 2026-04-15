@@ -54,9 +54,22 @@ function ProjectCard({ project, index }) {
             className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
           />
         </div>
-        <span className="absolute top-3 right-3 bg-[#FFD341] text-[#3A2E00] font-bold text-[12px] px-6 py-2.5 rounded-[15px] whitespace-nowrap">
-          {project.category}
-        </span>
+          <span style={{
+            position: "absolute",
+            top: "8px",
+            right: "8px",
+            background: "#FFD341",
+            color: "#3A2E00",
+            fontWeight: "700",
+            fontSize: "12px",
+            padding: "4px 11px",
+            borderRadius: "30px",
+            whiteSpace: "nowrap",
+            zIndex: 10,
+            lineHeight: "1.4",
+          }}>
+            {project.category}
+          </span>
         </div>
 
         {/* 👻 ── CARD CONTENTS ── */}

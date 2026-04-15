@@ -38,9 +38,9 @@ export const toolCardBase = {
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
-  gap: 5,
+  gap: '4px',
   cursor: 'inherit',
-  transition: 'transform 0.18s, background 0.18s',
+  // transition: 'transform 0.18s, background 0.18s',
 }
 
 // ── Home | Projects Section ─────────────────────────────────────────────────────────────
@@ -166,7 +166,7 @@ export const projectsData = [
     title: "Whaloo",
     category: "Mobile",
     tags: "Mobile Front-End - UI/UX - Flutter",
-    image: "src/assets/projects/whaloo.png",
+    image: "src/assets/projects/whalo.png",
     description: "A mobile app that helps users track and manage their daily hydration habits with gentle nudges.",
     // path: "/project/whaloo"
   },
