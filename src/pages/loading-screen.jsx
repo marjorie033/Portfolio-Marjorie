@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { DotLottieReact } from '@lottiefiles/dotlottie-react'
 
+
 export default function LoadingScreen({ onComplete }) {
   const containerRef = useRef(null)
 
@@ -31,8 +32,7 @@ export default function LoadingScreen({ onComplete }) {
       gap: "16px",
     }}>
       <DotLottieReact
-        src="https://lottie.host/0ce24912-0352-4863-9ae3-4b0c3f936e87/esBIXj0ZZf.lottie"
-        wasmUrl="/dotlottie-player.wasm"
+        src="/loading-anim.json"
         loop
         autoplay
         style={{ width: "300px", height: "300px" }}
