@@ -14,21 +14,34 @@ import anito3 from "../assets/projects/anito3.png";
 import anito4 from "../assets/projects/anito5.png";
 
 
+import figma from '../assets/icons/Figma.svg';
+import vs from '../assets/icons/VS.svg';
+import aseprite from '../assets/icons/aseperite.svg';
+import unity from '../assets/icons/unity.svg';
+import wordpress from '../assets/icons/wordpress.svg';
+import godot from '../assets/icons/Godot.svg';
+import css from '../assets/icons/css.svg';
+import photoshop from '../assets/icons/Photoshop.svg';
+import illustrator from '../assets/icons/Illustrator.svg';
+import react from '../assets/icons/React.svg';
+import github from '../assets/icons/github.svg';
+import html from '../assets/icons/html.svg';  
+
 
 // ── Home | Tools Section ─────────────────────────────────────────────────────────────
 export const tools = [
-  { name: 'Figma',       icon: <img src="src/assets/icons/Figma.svg"        alt="Figma"        style={{ height: '1em', width: 'auto' }} /> },
-  { name: 'VS Code',     icon: <img src="src/assets/icons/VS.svg"           alt="VS Code"      style={{ height: '1em', width: 'auto' }} /> },
-  { name: 'Aseprite',    icon: <img src="src/assets/icons/aseperite.svg"    alt="Aseprite"     style={{ height: '1em', width: 'auto' }} /> },
-  { name: 'Unity',       icon: <img src="src/assets/icons/unity.svg"        alt="Unity"        style={{ height: '1em', width: 'auto' }} /> },
-  { name: 'WordPress',   icon: <img src="src/assets/icons/wordpress.svg"    alt="WordPress"    style={{ height: '1em', width: 'auto' }} /> },
-  { name: 'Godot',       icon: <img src="src/assets/icons/Godot.svg"        alt="Godot"        style={{ height: '1em', width: 'auto' }} /> },
-  { name: 'CSS',         icon: <img src="src/assets/icons/css.svg"          alt="CSS"          style={{ height: '1em', width: 'auto' }} /> },
-  { name: 'Photoshop',   icon: <img src="src/assets/icons/Photoshop.svg"    alt="Photoshop"    style={{ height: '1em', width: 'auto' }} /> },
-  { name: 'Illustrator', icon: <img src="src/assets/icons/Illustrator.svg"  alt="Illustrator"  style={{ height: '1em', width: 'auto' }} /> },
-  { name: 'React',       icon: <img src="src/assets/icons/React.svg"        alt="React"        style={{ height: '1em', width: 'auto' }} /> },
-  { name: 'Git',         icon: <img src="src/assets/icons/github.svg"       alt="Git"          style={{ height: '1em', width: 'auto' }} /> },
-  { name: 'HTML',        icon: <img src="src/assets/icons/html.svg"         alt="HTML"         style={{ height: '1em', width: 'auto' }} /> },
+  { name: 'Figma',       icon: <img src={figma}        alt="Figma"        style={{ height: '1em', width: 'auto' }} /> },
+  { name: 'VS Code',     icon: <img src={vs}           alt="VS Code"      style={{ height: '1em', width: 'auto' }} /> },
+  { name: 'Aseprite',    icon: <img src={aseprite}    alt="Aseprite"     style={{ height: '1em', width: 'auto' }} /> },
+  { name: 'Unity',       icon: <img src={unity}        alt="Unity"        style={{ height: '1em', width: 'auto' }} /> },
+  { name: 'WordPress',   icon: <img src={wordpress}    alt="WordPress"    style={{ height: '1em', width: 'auto' }} /> },
+  { name: 'Godot',       icon: <img src={godot}        alt="Godot"        style={{ height: '1em', width: 'auto' }} /> },
+  { name: 'CSS',         icon: <img src={css}          alt="CSS"          style={{ height: '1em', width: 'auto' }} /> },
+  { name: 'Photoshop',   icon: <img src={photoshop}    alt="Photoshop"    style={{ height: '1em', width: 'auto' }} /> },
+  { name: 'Illustrator', icon: <img src={illustrator}  alt="Illustrator"  style={{ height: '1em', width: 'auto' }} /> },
+  { name: 'React',       icon: <img src={react}        alt="React"        style={{ height: '1em', width: 'auto' }} /> },
+  { name: 'Git',         icon: <img src={github}       alt="Git"          style={{ height: '1em', width: 'auto' }} /> },
+  { name: 'HTML',        icon: <img src={html}         alt="HTML"         style={{ height: '1em', width: 'auto' }} /> },
 ]
 
 export const toolCardBase = {
