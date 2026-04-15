@@ -7,7 +7,7 @@ import FloatingStar from '../theme/svgs.jsx'
 import { useTransition } from '../theme/page-transition.jsx'
 import SEO from '../widgets/SEO.jsx'
 import { HeroBottomSVG } from "../theme/icons";
-
+import myPhoto from '../assets/my-photo.png';
 
 /* ── Responsive breakpoints ───────────────────────────────────────────────── */
 // mobile  : < 640px
@@ -360,7 +360,7 @@ function PhotoBlock({ diameter, isMobile, isTablet }) {
         }}
       >
         <img
-          src="../assets/my-photo.png"
+          src={myPhoto}
           alt="Marjorie"
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
         />
