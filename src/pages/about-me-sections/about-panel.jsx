@@ -13,12 +13,12 @@ const PAGE_SIZE = 3;
 
 export default function AboutPanel({ visible, isMobile = false, setSelectedCert }) {
   const certPaths = [
-    devfest,
-    ferret,
-    hosting,
-    convention,
-    matilos,
-    coc
+    {devfest},
+    {ferret},
+    {hosting},
+    {convention},
+    {matilos},
+    {coc}
   ];
 
   // const [visibleCount, setVisibleCount] = useState(0);
