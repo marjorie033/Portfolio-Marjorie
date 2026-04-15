@@ -60,7 +60,6 @@ export default function Home() {
     
     <div style={{ background: '#15141F', minHeight: '100vh' }}>
       <SEO title="Home" />
-      <div>{/* Your home content */}</div>
       {/* ── HERO ───────────────────────────────────────────────────────────── */}
       <section
         id="about"
@@ -361,7 +360,7 @@ function PhotoBlock({ diameter, isMobile, isTablet }) {
         }}
       >
         <img
-          src="/src/assets/my-photo.png"
+          src="../assets/my-photo.png"
           alt="Marjorie"
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
         />
