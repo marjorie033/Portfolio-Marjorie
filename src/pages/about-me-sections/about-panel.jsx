@@ -2,23 +2,23 @@ import { useState, useRef } from "react";
 import { WavyUnderline } from "../../theme/icons";
 import { headingStyle, btnStyle, panelStyle } from "./shared-style.js";
 
-import devfest from "src/assets/images/devfest.png";
-import ferret from "src/assets/images/ferret-coc.png";
-import hosting from "src/assets/images/website-hosting.png";
-import convention from "src/assets/images/ICpEP-Regional-Convention.jpg";
-import matilos from "src/assets/images/MATILOS.png";
-import coc from "src/assets/images/coc.jpg";
+import devfest from "../../assets/images/devfest.png";
+import ferret from "../../assets/images/ferret-coc.png";
+import hosting from "../../assets/images/website-hosting.png";
+import convention from "../../assets/images/ICpEP-Regional-Convention.jpg";
+import matilos from "../../assets/images/MATILOS.png";
+import coc from "../../assets/images/coc.jpg";
 
 const PAGE_SIZE = 3;
 
 export default function AboutPanel({ visible, isMobile = false, setSelectedCert }) {
   const certPaths = [
-    {devfest},
-    {ferret},
-    {hosting},
-    {convention},
-    {matilos},
-    {coc}
+    devfest,
+    ferret,
+    hosting,
+    convention,
+    matilos,
+    coc
   ];
 
   // const [visibleCount, setVisibleCount] = useState(0);

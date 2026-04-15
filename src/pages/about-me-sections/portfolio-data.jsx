@@ -1,17 +1,19 @@
 // ─── Portfolio Data ───────────────────────────────────────────────────────────
-import me from "src/assets/images/me.jpg";
-import ferret from "src/assets/images/ferret-logo.png";
-import icpep from "src/assets/images/icpep.png";
-
-import cit from "src/assets/education/cit-u-logo.png";
-import cbd from "src/assets/education/cbd-logo.png";
-import uc from "src/assets/education/uc-logo.jpg";
-import bsce from "src/assets/education/bsce-logo.png";
+import me from "../../assets/me.jpg";
+import ferret from "../../assets/experience/ferret-logo.png";
+import icpep from "../../assets/experience/icpep.png";
+// import coc from "../../assets/images/coc.jpg";
+// import devfest from "../../assets/images/devfest.png";
+// import websiteHosting from "../../assets/images/website-hosting.png";
+import cit from "../../assets/education/cit-u-logo.png";
+import cbd from "../../assets/education/cbd-logo.png";
+import uc from "../../assets/education/uc-logo.jpg";
+import bsce from "../../assets/education/bsce-logo.png"; 
 
 export const DEFAULT = {
-  img: { src: me },
+  img: me,
   name: "Marjorie P. Matilos",
-  subtitle: "4th Year Computer Engineering Student",
+  subtitle: "4th Year Computer Engine ering Student",
   tag1: "Web Dev/Designer",
   tag2: "Game Dev/Designer",
   hashtags: "#Computer Engineer | #Web Designer/Dev",
