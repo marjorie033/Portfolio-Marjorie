@@ -1,7 +1,15 @@
 // ─── Portfolio Data ───────────────────────────────────────────────────────────
+import me from "src/assets/images/me.jpg";
+import ferret from "src/assets/images/ferret-logo.png";
+import icpep from "src/assets/images/icpep.png";
+
+import cit from "src/assets/education/cit-u-logo.png";
+import cbd from "src/assets/education/cbd-logo.png";
+import uc from "src/assets/education/uc-logo.jpg";
+import bsce from "src/assets/education/bsce-logo.png";
 
 export const DEFAULT = {
-  img: "src/assets/me.jpg",
+  img: me,
   name: "Marjorie P. Matilos",
   subtitle: "4th Year Computer Engineering Student",
   tag1: "Web Dev/Designer",
@@ -14,7 +22,7 @@ export const DEFAULT = {
 
 export const experiences = [
   {
-    img: "src/assets/experience/ferret-logo.png",
+    img: ferret,
     expTitle: "Ferre9 Creative Solution Intern",
     expRole: "May 30 - July 21, 2025",
     expDesc:
@@ -23,7 +31,7 @@ export const experiences = [
     tag2: "QA Intern",
   },
   {
-    img: "src/assets/experience/ferret-logo.png",
+    img: ferret,
     expTitle: "Ferre9 Creative Solution",
     expRole: "July 21 - March 2026",
     expDesc:
@@ -32,7 +40,7 @@ export const experiences = [
     tag2: "Junior Web Designer",
   },
     {
-    img: "src/assets/experience/icpep.png",
+    img: icpep,
     expTitle: "ICPEP",
     expRole: "July 21 - March 2025",
     expDesc:
@@ -44,7 +52,7 @@ export const experiences = [
 
 export const educations = [
   {
-    img: "src/assets/education/cit-u-logo.png",
+    img: cit,
     school: "Cebu Institute of Technology - University",
     years: "2020 - 2026",
     degree: "BS Computer Engineering & Senior High School (STEM)",
@@ -52,7 +60,7 @@ export const educations = [
     side: "left",
   },
   {
-    img: "src/assets/education/cbd-logo.png",
+    img: cbd,
     school: "CBD College",
     years: "2018 - 2020",
     degree: "Junior High School",
@@ -60,7 +68,7 @@ export const educations = [
     side: "right",
   },
   {
-    img: "src/assets/education/uc-logo.jpg",
+    img: uc,
     school: "University of Cebu — METC",
     years: "2016 - 2017",
     degree: "Junior High School",
@@ -68,7 +76,7 @@ export const educations = [
     side: "left",
   },
   {
-    img: "src/assets/education/bsce-logo.png",
+    img: bsce,
     school: "Basak Community Elementary School",
     years: "2015",
     degree: "Elementary",

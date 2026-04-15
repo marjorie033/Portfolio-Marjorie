@@ -27,6 +27,14 @@ import react from '../assets/icons/React.svg';
 import github from '../assets/icons/github.svg';
 import html from '../assets/icons/html.svg';  
 
+import thiana from '../assets/projects/thiana.png';
+import nsf from '../assets/projects/nsf.png';
+import curious from '../assets/projects/curious.png';
+import itshotdogtime from '../assets/projects/itshotdogtime.png';
+import whaloo from '../assets/projects/whaloo.png';
+import remgloves from '../assets/projects/remgloves.png';
+
+
 
 // ── Home | Tools Section ─────────────────────────────────────────────────────────────
 export const tools = [
@@ -66,7 +74,7 @@ export const projects = [
     status: 'Live',
     date: 'February 2026',
     accent: '#FFD341',
-    image: 'src/assets/projects/know-your-trash.png',
+    image: {knowyourtrash},
     link: 'https://settery.itch.io/know-your-trash',
   },
   {
@@ -76,7 +84,7 @@ export const projects = [
     status: 'Live',
     date: 'February 2026',
     accent: '#7C6EEA',
-    image: 'src/assets/projects/how-swim-your-fish.png',
+    image: {howtoswimyourfish},
     link: 'https://settery.itch.io/how-to-swim-your-fish',
   },
   {
@@ -86,7 +94,7 @@ export const projects = [
     status: 'Live',
     date: 'January 2026',
     accent: '#D85662',
-    image: 'src/assets/projects/thiana.png',
+    image: {thiana},
     link: 'https://thianaguerraphoto.com/',
   },
   {
@@ -96,7 +104,7 @@ export const projects = [
     status: 'Live',
     date: 'January 2026',
     accent: '#FFD341',
-    image: 'src/assets/projects/nsf.png',
+    image: {nsf},
     link: 'https://naturespringfoundation.org/',
   },
   {
@@ -106,7 +114,7 @@ export const projects = [
     status: 'In Development',
     date: 'December 2025',
     accent: '#7C6EEA',
-    image: 'src/assets/projects/anito.png',
+    image: {anito},
   },
 ]
 
@@ -123,7 +131,7 @@ export const projectsData = [
     title: "Know Your Trash",
     category: "Game",
     tags: "UI design - User research - Unity Engine",
-    image: "src/assets/projects/know-your-trash.png",
+    image: {knowyourtrash},
     description: "A sorting game that teaches players to classify waste correctly through fun, fast-paced gameplay.",
     path: "/project/know-your-trash"
   },
@@ -131,7 +139,7 @@ export const projectsData = [
     title: "How to Swim Your Fish",
     category: "Game",
     tags: "UI design - User research - Godot Engine",
-    image: "src/assets/projects/how-swim-your-fish.png",
+    image: {howtoswimyourfish},
     description: "A quirky puzzle platformer where you guide a fish through obstacle-filled waters to safety.",
     path: "/project/how-to-swim-your-fish"
   },
@@ -139,7 +147,7 @@ export const projectsData = [
     title: "Anito",
     category: "Game",
     tags: "UI designer - Lead Artist - Unity Engine",
-    image: "src/assets/projects/anito.png",
+    image: {anito},
     description: "A quirky puzzle platformer where you guide a fish through obstacle-filled waters to safety.",
     path: "/project/anito"
   },
@@ -147,7 +155,7 @@ export const projectsData = [
     title: "Thiana Guerra Photography",
     category: "Web",
     tags: "Web Developer - Layout - Wordpress",
-    image: "src/assets/projects/thiana.png",
+    image: {thiana},
     description: "A music discovery website with an editorial layout designed to surface hidden gems and new sounds.",
     // path: "/project/thiana-guerra-photography"
   },
@@ -155,7 +163,7 @@ export const projectsData = [
     title: "Nature Spring Foundation",
     category: "Web",
     tags: "Web Developer/Designer - Wordpress",
-    image: "src/assets/projects/nsf.png",
+    image: {nsf},
     description: "A music discovery website with an editorial layout designed to surface hidden gems and new sounds.",
     // path: "/project/nature-spring-foundation"
   },
@@ -163,7 +171,7 @@ export const projectsData = [
     title: "Curious Music",
     category: "Web",
     tags: "Web Developer/Designer - Wordpress",
-    image: "src/assets/projects/curious.png",
+    image: {curious},
     description: "A music discovery website with an editorial layout designed to surface hidden gems and new sounds.",
     // path: "/project/curious-music"
   },
@@ -171,7 +179,7 @@ export const projectsData = [
     title: "It's Hotdog Time",
     category: "Web",
     tags: "Web Developer/Designer - Layout - Wordpress",
-    image: "src/assets/projects/itshotdogtime.png",
+    image: {itshotdogtime},
     description: "A music discovery website with an editorial layout designed to surface hidden gems and new sounds.",
     // path: "/project/it's-hotdog-time"
   },
@@ -179,7 +187,7 @@ export const projectsData = [
     title: "Whaloo",
     category: "Mobile",
     tags: "Mobile Front-End - UI/UX - Flutter",
-    image: "src/assets/projects/whalo.png",
+    image: {whaloo},
     description: "A mobile app that helps users track and manage their daily hydration habits with gentle nudges.",
     // path: "/project/whaloo"
   },
@@ -187,7 +195,7 @@ export const projectsData = [
     title: "RemGlove",
     category: "Mobile",
     tags: "Mobile Front-End - Thesis Project - Flutter",
-    image: "src/assets/projects/remgloves.png",
+    image: {remgloves},
     description: "A mobile app that helps users track and manage their daily hydration habits with gentle nudges.",
     // path: "/project/remgloves"
   },
