@@ -22,8 +22,8 @@
 
 /* Default cursor */
 :root {
-  --default-cursor: url('public/hk-cursor.ico'), auto;
-  --pointer-cursor: url('public/hk-cursor.ico'), pointer;
+  --default-cursor: url('/hk-cursor.ico'), auto;
+  --pointer-cursor: url('/hk-cursor.ico'), pointer;
 }
 
 html, body {
