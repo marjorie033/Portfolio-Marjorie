@@ -74,7 +74,7 @@ export const projects = [
     status: 'Live',
     date: 'February 2026',
     accent: '#FFD341',
-    image: {knowyourtrash},
+    image: knowyourtrash,
     link: 'https://settery.itch.io/know-your-trash',
   },
   {
@@ -84,7 +84,7 @@ export const projects = [
     status: 'Live',
     date: 'February 2026',
     accent: '#7C6EEA',
-    image: {howtoswimyourfish},
+    image: howtoswimyourfish,
     link: 'https://settery.itch.io/how-to-swim-your-fish',
   },
   {
@@ -94,7 +94,7 @@ export const projects = [
     status: 'Live',
     date: 'January 2026',
     accent: '#D85662',
-    image: {thiana},
+    image: thiana,
     link: 'https://thianaguerraphoto.com/',
   },
   {
@@ -104,7 +104,7 @@ export const projects = [
     status: 'Live',
     date: 'January 2026',
     accent: '#FFD341',
-    image: {nsf},
+    image: nsf,
     link: 'https://naturespringfoundation.org/',
   },
   {
@@ -114,7 +114,7 @@ export const projects = [
     status: 'In Development',
     date: 'December 2025',
     accent: '#7C6EEA',
-    image: {anito},
+    image: anito,
   },
 ]
 
@@ -131,7 +131,7 @@ export const projectsData = [
     title: "Know Your Trash",
     category: "Game",
     tags: "UI design - User research - Unity Engine",
-    image: {knowyourtrash},
+    image: knowyourtrash,
     description: "A sorting game that teaches players to classify waste correctly through fun, fast-paced gameplay.",
     path: "/project/know-your-trash"
   },
@@ -139,7 +139,7 @@ export const projectsData = [
     title: "How to Swim Your Fish",
     category: "Game",
     tags: "UI design - User research - Godot Engine",
-    image: {howtoswimyourfish},
+    image: howtoswimyourfish,
     description: "A quirky puzzle platformer where you guide a fish through obstacle-filled waters to safety.",
     path: "/project/how-to-swim-your-fish"
   },
@@ -147,7 +147,7 @@ export const projectsData = [
     title: "Anito",
     category: "Game",
     tags: "UI designer - Lead Artist - Unity Engine",
-    image: {anito},
+    image: anito,
     description: "A quirky puzzle platformer where you guide a fish through obstacle-filled waters to safety.",
     path: "/project/anito"
   },
@@ -155,7 +155,7 @@ export const projectsData = [
     title: "Thiana Guerra Photography",
     category: "Web",
     tags: "Web Developer - Layout - Wordpress",
-    image: {thiana},
+    image: thiana,
     description: "A music discovery website with an editorial layout designed to surface hidden gems and new sounds.",
     // path: "/project/thiana-guerra-photography"
   },
@@ -163,7 +163,7 @@ export const projectsData = [
     title: "Nature Spring Foundation",
     category: "Web",
     tags: "Web Developer/Designer - Wordpress",
-    image: {nsf},
+    image: nsf,
     description: "A music discovery website with an editorial layout designed to surface hidden gems and new sounds.",
     // path: "/project/nature-spring-foundation"
   },
@@ -171,7 +171,7 @@ export const projectsData = [
     title: "Curious Music",
     category: "Web",
     tags: "Web Developer/Designer - Wordpress",
-    image: {curious},
+    image: curious,
     description: "A music discovery website with an editorial layout designed to surface hidden gems and new sounds.",
     // path: "/project/curious-music"
   },
@@ -179,7 +179,7 @@ export const projectsData = [
     title: "It's Hotdog Time",
     category: "Web",
     tags: "Web Developer/Designer - Layout - Wordpress",
-    image: {itshotdogtime},
+    image: itshotdogtime,
     description: "A music discovery website with an editorial layout designed to surface hidden gems and new sounds.",
     // path: "/project/it's-hotdog-time"
   },
@@ -187,7 +187,7 @@ export const projectsData = [
     title: "Whaloo",
     category: "Mobile",
     tags: "Mobile Front-End - UI/UX - Flutter",
-    image: {whaloo},
+    image: whaloo,
     description: "A mobile app that helps users track and manage their daily hydration habits with gentle nudges.",
     // path: "/project/whaloo"
   },
@@ -195,7 +195,7 @@ export const projectsData = [
     title: "RemGlove",
     category: "Mobile",
     tags: "Mobile Front-End - Thesis Project - Flutter",
-    image: {remgloves},
+    image: remgloves,
     description: "A mobile app that helps users track and manage their daily hydration habits with gentle nudges.",
     // path: "/project/remgloves"
   },
