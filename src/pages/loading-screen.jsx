@@ -1,12 +1,21 @@
 import { useEffect, useRef } from "react"
 import { gsap } from "gsap"
-import { DotLottieReact } from '@lottiefiles/dotlottie-react'
-
+import lottie from "lottie-web"
+import animationData from "/public/loading-anim.json"
 
 export default function LoadingScreen({ onComplete }) {
   const containerRef = useRef(null)
+  const animRef = useRef(null)
 
   useEffect(() => {
+    const anim = lottie.loadAnimation({
+      container: animRef.current,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      animationData: animationData,
+    })
+
     const timer = setTimeout(() => {
       gsap.to(containerRef.current, {
         opacity: 0,
@@ -16,7 +25,10 @@ export default function LoadingScreen({ onComplete }) {
       })
     }, 6200)
 
-    return () => clearTimeout(timer)
+    return () => {
+      clearTimeout(timer)
+      anim.destroy()
+    }
   }, [])
 
   return (
@@ -31,26 +43,21 @@ export default function LoadingScreen({ onComplete }) {
       justifyContent: "center",
       gap: "16px",
     }}>
-      <DotLottieReact
-        src="/loading-anim.json"
-        loop
-        autoplay
-        dotLottieRefCallback={(dotLottie) => {
-          if (dotLottie) dotLottie.setWasmUrl("/dotlottie-player.wasm")
-        }}
+      <div
+        ref={animRef}
         style={{ width: "300px", height: "300px" }}
       />
       
       <p 
-      className="font-surgena"  
-      style={{
-        color: "#15141F",
-        fontSize: "16px",
-        letterSpacing: "4px",
-        textTransform: "uppercase",
-        opacity: 0.7,
-        margin: 0,
-      }}>
+        className="font-surgena"  
+        style={{
+          color: "#15141F",
+          fontSize: "16px",
+          letterSpacing: "4px",
+          textTransform: "uppercase",
+          opacity: 0.7,
+          margin: 0,
+        }}>
         Loading...
       </p>
     </div>
