@@ -37,8 +37,7 @@ export default function App() {
       {isLoading && (
         <LoadingScreen onComplete={() => setIsLoading(false)} />
       )}
-      {/* <div style={{ visibility: isLoading ? "hidden" : "visible" }}> */}
-      <div style={{ visibility: "visible" }}>
+      <div style={{ visibility: isLoading ? "hidden" : "visible" }}>
       <ScrollToTop />
       <TransitionProvider>
       <Header />
