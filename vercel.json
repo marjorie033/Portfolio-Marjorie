@@ -5,7 +5,7 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://lottie.host https://*.lottie.host; connect-src 'self' https://lottie.host https://*.lottie.host https://*.lottiefiles.com https://unpkg.com; worker-src 'self' blob:; wasm-unsafe-eval 'self';"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://lottie.host https://*.lottie.host; connect-src 'self' https://lottie.host https://*.lottie.host https://*.lottiefiles.com https://unpkg.com https://cdn.jsdelivr.net; worker-src 'self' blob:; wasm-unsafe-eval 'self';"
         },
         {
           "key": "X-Frame-Options",
