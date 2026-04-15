@@ -9,7 +9,7 @@ import uc from "src/assets/education/uc-logo.jpg";
 import bsce from "src/assets/education/bsce-logo.png";
 
 export const DEFAULT = {
-  img: me,
+  img: { src: me },
   name: "Marjorie P. Matilos",
   subtitle: "4th Year Computer Engineering Student",
   tag1: "Web Dev/Designer",
