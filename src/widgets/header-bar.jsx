@@ -20,6 +20,20 @@ export default function Header() {
     { name: 'Hire Me',  path: '/contact' },
   ];
 
+ useEffect(() => {
+    const handleScroll = () => {
+      // If user scrolls more than 50px, set compact to true
+      if (window.scrollY > 50) {
+        setCompact(true);
+      } else {
+        setCompact(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   // Track mobile breakpoint
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
@@ -30,28 +44,8 @@ export default function Header() {
   // Close menu on route change
   useEffect(() => {
     setMenuOpen(false);
-    setCompact(false);
-
-    const timeoutId = setTimeout(() => {
-      const ids = ['contact', 'projects', 'tools', 'project-view-1', ];
-      const targets = ids.map(id => document.getElementById(id)).filter(Boolean);
-      if (targets.length === 0) return;
-
-      const visibilityMap = {};
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            visibilityMap[entry.target.id] = entry.isIntersecting;
-          });
-          setCompact(Object.values(visibilityMap).some(v => v === true));
-        },
-        { threshold: 0, rootMargin: '-80px 0px 0px 0px' }
-      );
-      targets.forEach(t => observer.observe(t));
-      return () => observer.disconnect();
-    }, 100);
-
-    return () => clearTimeout(timeoutId);
+    // Note: We no longer manually setCompact(false) here 
+    // because the scroll listener handles it based on position
   }, [location.pathname]);
 
   // Close menu when clicking outside
@@ -66,20 +60,20 @@ export default function Header() {
     return () => document.removeEventListener('mousedown', handleClick);
   }, [menuOpen]);
 
-  const transition = 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)';
+  const transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
 
   const handleNavClick = (path) => {
-  if (isTransitioning.current) return; 
-  if (location.pathname === path) return;
+    if (isTransitioning.current) return;
+    if (location.pathname === path) return;
 
-  isTransitioning.current = true;
-  setMenuOpen(false);
-  navigateTo(path);
+    isTransitioning.current = true;
+    setMenuOpen(false);
+    navigateTo(path);
 
-  setTimeout(() => {
-    isTransitioning.current = false;
-  }, 800); 
-};
+    setTimeout(() => {
+      isTransitioning.current = false;
+    }, 800);
+  };
 
   return (
     <>

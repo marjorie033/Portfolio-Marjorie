@@ -291,36 +291,47 @@ const handleDesktopScroll = (e) => {
 
           ) : (
 
-            /* ── DESKTOP: original scroll behaviour ── */
+ /* ── DESKTOP: original scroll behaviour ── */
             <div
               className="right-scroll portfolio-right"
               ref={scrollRef}
               onScroll={handleDesktopScroll}
-              style={{ flex: 1, background: "#F1EAE9", borderRadius: 16, position: "relative", overflowY: "scroll", minHeight: "100vh" }}
+              style={{ flex: 1, background: "#F1EAE9", borderRadius: 16, position: "relative", overflowY: "scroll", height: "100vh" }}
             >
-              <div style={{ height: "300%", position: "relative" }}>
-                <div style={{ position: "absolute", top: 0, left: 0, right: 0, minHeight: "33.333vh" }}>
-                  <AboutPanel visible={section === "about"} setSelectedCert={setSelectedCert} />
+              <div style={{ display: "flex", flexDirection: "column" }}>
+                
+                {/* ABOUT SECTION */}
+                <div style={{ minHeight: "100vh", position: "relative" }}>
+                  <AboutPanel visible={section === "about"} setSelectedCert={setSelectedCert} scrollContainer={scrollRef} />
                 </div>
-                <div id="experiences" style={{ position: "absolute", top: "33.333%", left: 0, right: 0, minHeight: "100vh" }}>
-                <ExperiencesPanel visible={section === "experiences"} activeIdx={activeExpIdx} 
-                  onSelect={(idx) => { 
-                    setActiveExpIdx(idx ?? 0);      // ← never null, fall back to 0
-                    setActiveEduIdx(null); 
-                  }} 
-                />
+                
+                {/* EXPERIENCES SECTION */}
+                <div id="experiences" style={{ minHeight: "100vh", position: "relative" }}>
+                  <ExperiencesPanel 
+                    visible={section === "experiences"} 
+                    activeIdx={activeExpIdx} 
+                    onSelect={(idx) => { 
+                      setActiveExpIdx(idx ?? 0);      
+                      setActiveEduIdx(null); 
+                    }} 
+                  />
+                </div>
 
-                <div id="education" style={{ position: "absolute", top: "66.666%", left: 0, right: 0, minHeight: "33.333vh" }}>
-                <EducationPanel visible={section === "education"} activeIdx={activeEduIdx} 
-                  onSelect={(idx) => { 
-                    setActiveEduIdx(idx ?? 0);      // ← never null, fall back to 0
-                    setActiveExpIdx(null); 
-                  }} 
-/>
+                {/* EDUCATION SECTION */}
+                <div id="education" style={{ minHeight: "100vh", position: "relative" }}>
+                  <EducationPanel 
+                    visible={section === "education"} 
+                    activeIdx={activeEduIdx} 
+                    onSelect={(idx) => { 
+                      setActiveEduIdx(idx ?? 0);      
+                      setActiveExpIdx(null); 
+                    }} 
+                  />
                 </div>
-                </div>
+
               </div>
             </div>
+            
           )}
 
         </div>

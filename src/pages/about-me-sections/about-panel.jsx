@@ -11,7 +11,7 @@ import coc from "../../assets/images/coc.jpg";
 
 const PAGE_SIZE = 3;
 
-export default function AboutPanel({ visible, isMobile = false, setSelectedCert }) {
+export default function AboutPanel({ visible, isMobile = false, setSelectedCert, scrollContainer }) {
   const certPaths = [
     devfest,
     ferret,
@@ -27,18 +27,24 @@ export default function AboutPanel({ visible, isMobile = false, setSelectedCert 
 const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 const hasMore = visibleCount < certPaths.length;
 const isAllShown = !hasMore;
+// const wrapRef = useRef(null);
 
-const handleToggle = () => {
-  if (isAllShown) {
-    setVisibleCount(PAGE_SIZE);
-    // Scroll after the DOM collapses
-    setTimeout(() => {
-      certsRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
-    }, 50);
-  } else {
-    setVisibleCount((prev) => Math.min(prev + PAGE_SIZE, certPaths.length));
-  }
-};
+  const handleToggle = () => {
+    if (isAllShown) {
+      setVisibleCount(PAGE_SIZE);
+      setTimeout(() => {
+        if (isMobile) {
+          // Mobile: scroll the panel's own wrapper
+          certsRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        } else {
+          // Desktop: scroll the right panel container back to certs heading position
+          scrollContainer?.current?.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      }, 50);
+    } else {
+      setVisibleCount((prev) => Math.min(prev + PAGE_SIZE, certPaths.length));
+    }
+  };
 
 const wrapStyle = isMobile
   ? { display: "flex", flexDirection: "column", justifyContent: "center", minHeight: "100%", padding: "20px 24px 32px" }

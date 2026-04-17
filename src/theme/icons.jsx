@@ -204,11 +204,7 @@ export const EyeLeftSVG = ({ pupilStyle }) => (
     <ellipse 
       cx="151.5" cy="157.5" rx="69.5" ry="101.5" 
       fill="#15141F" 
-      style={{ 
-        ...pupilStyle, 
-        transformBox: 'fill-box', 
-        transformOrigin: 'center' 
-      }} 
+      style={pupilStyle}
     />
   </svg>
 )
@@ -219,15 +215,10 @@ export const EyeRightSVG = ({ pupilStyle }) => (
     <ellipse 
       cx="151.5" cy="157.5" rx="69.5" ry="101.5" 
       fill="#15141F" 
-      style={{ 
-        ...pupilStyle, 
-        transformBox: 'fill-box', 
-        transformOrigin: 'center' 
-      }} 
+      style={pupilStyle}
     />
   </svg>
 )
-
 
 export const NoseSVG = () => (
   <svg viewBox="0 0 353 160" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%' }}>

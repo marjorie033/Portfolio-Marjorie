@@ -32,9 +32,9 @@ export const panelStyle = (visible, mobile = false) => ({
     opacity: 1,
     pointerEvents: "auto",
   } : {
-    position: "absolute",
-    inset: 0,
-    padding: "28px 28px 32px",
+    position: "relative",      // Changed from "absolute"
+    minHeight: "100vh",        // Ensures it takes up at least one full screen height
+    padding: "28px 28px 60px", // Increased bottom padding slightly for breathing room
     display: "flex",
     flexDirection: "column",
     opacity: visible ? 1 : 0,
