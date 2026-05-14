@@ -13,6 +13,7 @@ import session1 from "../../assets/images/session1.jpg";
 import session2 from "../../assets/images/session2.jpg";
 import session3 from "../../assets/images/session3.jpg";
 import session4 from "../../assets/images/session4.jpg";
+import tek from "../../assets/images/26.jpg";
 
 // ── Config ────────────────────────────────────────────────────────────────────
 const PREVIEW_COUNT  = 3;   // certs shown in the About panel preview
@@ -48,44 +49,18 @@ function AllCertificatesPage({ certPaths, onBack, setSelectedCert, isMobile }) {
       style={{
         minHeight: "100%",
         background: "#F1EAE9",
-        padding: isMobile ? "24px 18px 40px" : "32px 32px 48px",
+        // Increased top padding for better spacing above the title
+        padding: isMobile ? "48px 18px 40px" : "64px 32px 48px",
         boxSizing: "border-box",
         display: "flex",
         flexDirection: "column",
+        animation: "panelSlideIn 0.4s ease both",
       }}
     >
-      {/* ── Breadcrumb + Back button row ── */}
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 18 }}>
-
-        {/* Breadcrumb trail */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 5,
-            fontSize: 12,
-            color: "#888",
-            fontWeight: 500,
-            letterSpacing: "0.2px",
-          }}
-        >
-          <span
-            onClick={onBack}
-            onMouseEnter={(e) => { e.currentTarget.style.color = "#1a1a2e"; e.currentTarget.style.cursor = "inherit"; }}
-            onMouseLeave={(e) => { e.currentTarget.style.color = "#888"; }}
-            style={{ transition: "color 0.15s", textDecoration: "underline", textUnderlineOffset: 3 }}
-          >
-            About
-          </span>
-          <span style={{ color: "#bbb", fontSize: 14, lineHeight: 1 }}>›</span>
-          <span style={{ color: "#1a1a2e", fontWeight: 700 }}>Certificates</span>
-        </div>
-      </div>
-
-      {/* ── Heading ── */}
+      {/* ── Heading (breadcrumb removed) ── */}
       <h2
         style={{
-          margin: "0 0 22px",
+          margin: "0 0 24px",
           fontSize: isMobile ? 22 : 26,
           fontWeight: 800,
           color: "#1a1a2e",
@@ -99,7 +74,9 @@ function AllCertificatesPage({ certPaths, onBack, setSelectedCert, isMobile }) {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: `repeat(${COLS}, 1fr)`,
+          gridTemplateColumns: isMobile
+            ? `repeat(3, 1fr)`            // tighter grid on mobile
+            : `repeat(${COLS}, 1fr)`,
           gap: isMobile ? "10px" : "14px",
           width: "100%",
           boxSizing: "border-box",
@@ -116,7 +93,6 @@ function AllCertificatesPage({ certPaths, onBack, setSelectedCert, isMobile }) {
               overflow: "hidden",
               borderRadius: 14,
               border: "4px solid #E8A820",
-              boxShadow: "0 3px 10px rgba(232,168,32,0.22)",
               backgroundColor: "#fff",
               aspectRatio: "1 / 1",
               cursor: "inherit",
@@ -204,6 +180,10 @@ function AllCertificatesPage({ certPaths, onBack, setSelectedCert, isMobile }) {
           from { opacity: 0; transform: translateY(10px); }
           to   { opacity: 1; transform: translateY(0); }
         }
+        @keyframes panelSlideIn {
+          from { opacity: 0; transform: translateX(12px); }
+          to   { opacity: 1; transform: translateX(0); }
+        }
       `}</style>
     </div>
   );
@@ -222,10 +202,11 @@ export default function AboutPanel({ visible, isMobile = false, setSelectedCert,
     session2,
     session3,
     session4,
+    tek,
     ferret,
   ];
 
-  const certsRef    = useRef(null);
+  const certsRef = useRef(null);
   const [showAll, setShowAll] = useState(false);
 
   // ── If "See More" was clicked, render the full certificates page ──────────
@@ -258,8 +239,9 @@ export default function AboutPanel({ visible, isMobile = false, setSelectedCert,
         justifyContent: "center",
         minHeight: "100%",
         padding: "20px 24px 32px",
+        animation: "panelFadeIn 0.35s ease both",
       }
-    : { ...panelStyle(visible), paddingTop: 0 };
+    : { ...panelStyle(visible), paddingTop: 0, animation: "panelFadeIn 0.35s ease both" };
 
   const resolvedHeadingStyle = isMobile
     ? { ...headingStyle, paddingTop: 0 }
@@ -275,6 +257,10 @@ export default function AboutPanel({ visible, isMobile = false, setSelectedCert,
         @keyframes certFadeIn {
           from { opacity: 0; transform: translateY(8px); }
           to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes panelFadeIn {
+          from { opacity: 0; transform: translateX(-12px); }
+          to   { opacity: 1; transform: translateX(0); }
         }
       `}</style>
 
@@ -296,33 +282,11 @@ export default function AboutPanel({ visible, isMobile = false, setSelectedCert,
         smoother, smarter, and more enjoyable.
       </p>
 
-      {/* ── Certificates heading + breadcrumb ── */}
-      <div ref={certsRef} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 }}>
+      {/* ── Certificates heading ── */}
+      <div ref={certsRef} style={{ marginBottom: 14 }}>
         <h3 style={{ margin: 0, fontSize: 17, fontWeight: 700, color: "#1a1a2e" }}>
           Certificates
         </h3>
-
-        {/* Breadcrumb — visible only when there are more certs to show */}
-        {certPaths.length > PREVIEW_COUNT && (
-          <div style={{ display: "flex", alignItems: "center", gap: 4, fontSize: 11, color: "#aaa", userSelect: "none" }}>
-            <span style={{ color: "#1a1a2e", fontWeight: 600 }}>About</span>
-            <span style={{ color: "#bbb" }}>›</span>
-            <span
-              onClick={() => setShowAll(true)}
-              onMouseEnter={(e) => { e.currentTarget.style.color = "#E8A820"; e.currentTarget.style.cursor = "inherit"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.color = "#aaa"; }}
-              style={{
-                color: "#aaa",
-                textDecoration: "underline",
-                textUnderlineOffset: 3,
-                transition: "color 0.15s",
-                fontWeight: 500,
-              }}
-            >
-              Certificates
-            </span>
-          </div>
-        )}
       </div>
 
       <div
