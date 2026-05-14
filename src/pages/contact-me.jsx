@@ -251,7 +251,7 @@ export default function ContactPage() {
                     <div
                       className="cp-input"
                       onClick={() => setSelectOpen(o => !o)}
-                      style={{ cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center" }}
+                      style={{ cursor: "inherit", display: "flex", justifyContent: "space-between", alignItems: "center" }}
                     >
                       <span>{form.job}</span>
                       <SelectChevron />
@@ -268,7 +268,7 @@ export default function ContactPage() {
                             onClick={() => { setForm(p => ({ ...p, job: o })); setSelectOpen(false); }}
                             style={{
                               padding: "12px 16px", fontSize: 12,
-                              cursor: "pointer", fontFamily: "'Halfre', serif",
+                              cursor: "inherit", fontFamily: "'Halfre', serif",
                               background: form.job === o ? "#FFD341" : "transparent",
                               color: form.job === o ? "#15141F" : "#fff",
                               transition: "background 0.15s",

@@ -8,51 +8,265 @@ import hosting from "../../assets/images/website-hosting.png";
 import convention from "../../assets/images/ICpEP-Regional-Convention.jpg";
 import matilos from "../../assets/images/MATILOS.png";
 import coc from "../../assets/images/coc.jpg";
+import akuni from "../../assets/images/akuni-completion.jpg";
+import session1 from "../../assets/images/session1.jpg";
+import session2 from "../../assets/images/session2.jpg";
+import session3 from "../../assets/images/session3.jpg";
+import session4 from "../../assets/images/session4.jpg";
 
-const PAGE_SIZE = 3;
+// ── Config ────────────────────────────────────────────────────────────────────
+const PREVIEW_COUNT  = 3;   // certs shown in the About panel preview
+const COLS           = 5;   // columns in the full-page grid
+const ROWS           = 3;   // rows in the full-page grid
+const TOTAL_SLOTS    = COLS * ROWS; // 15 total slots
 
+// ── Plus icon ─────────────────────────────────────────────────────────────────
+function PlusIcon() {
+  return (
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="12.5" y="4" width="3" height="20" rx="1.5" fill="#7B5800" />
+      <rect x="4" y="12.5" width="20" height="3" rx="1.5" fill="#7B5800" />
+    </svg>
+  );
+}
+
+// ── Back arrow icon ───────────────────────────────────────────────────────────
+function BackArrow() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M11 14L6 9L11 4" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+// ── Full Certificates Page ────────────────────────────────────────────────────
+function AllCertificatesPage({ certPaths, onBack, setSelectedCert, isMobile }) {
+  const [hovered, setHovered] = useState(null);
+
+  return (
+    <div
+      style={{
+        minHeight: "100%",
+        background: "#F1EAE9",
+        padding: isMobile ? "24px 18px 40px" : "32px 32px 48px",
+        boxSizing: "border-box",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      {/* ── Breadcrumb + Back button row ── */}
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 18 }}>
+
+        {/* Breadcrumb trail */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 5,
+            fontSize: 12,
+            color: "#888",
+            fontWeight: 500,
+            letterSpacing: "0.2px",
+          }}
+        >
+          <span
+            onClick={onBack}
+            onMouseEnter={(e) => { e.currentTarget.style.color = "#1a1a2e"; e.currentTarget.style.cursor = "inherit"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.color = "#888"; }}
+            style={{ transition: "color 0.15s", textDecoration: "underline", textUnderlineOffset: 3 }}
+          >
+            About
+          </span>
+          <span style={{ color: "#bbb", fontSize: 14, lineHeight: 1 }}>›</span>
+          <span style={{ color: "#1a1a2e", fontWeight: 700 }}>Certificates</span>
+        </div>
+      </div>
+
+      {/* ── Heading ── */}
+      <h2
+        style={{
+          margin: "0 0 22px",
+          fontSize: isMobile ? 22 : 26,
+          fontWeight: 800,
+          color: "#1a1a2e",
+          letterSpacing: "-0.5px",
+        }}
+      >
+        Certificates
+      </h2>
+
+      {/* ── Grid ── */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: `repeat(${COLS}, 1fr)`,
+          gap: isMobile ? "10px" : "14px",
+          width: "100%",
+          boxSizing: "border-box",
+        }}
+      >
+        {/* Filled cert slots */}
+        {certPaths.map((path, i) => (
+          <div
+            key={path}
+            onClick={() => setSelectedCert(path)}
+            onMouseEnter={() => setHovered(`c${i}`)}
+            onMouseLeave={() => setHovered(null)}
+            style={{
+              overflow: "hidden",
+              borderRadius: 14,
+              border: "4px solid #E8A820",
+              boxShadow: "0 3px 10px rgba(232,168,32,0.22)",
+              backgroundColor: "#fff",
+              aspectRatio: "1 / 1",
+              cursor: "inherit",
+              transition: "transform 0.2s, opacity 0.2s, box-shadow 0.2s",
+              transform: hovered === `c${i}` ? "scale(1.04)" : "scale(1)",
+              boxShadow:
+                hovered === `c${i}`
+                  ? "0 8px 24px rgba(232,168,32,0.38)"
+                  : "0 3px 10px rgba(232,168,32,0.22)",
+              animation: `certFadeIn 0.35s ease ${Math.min(i * 0.04, 0.4)}s both`,
+            }}
+          >
+            <img
+              src={path}
+              alt={`Cert ${i + 1}`}
+              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+            />
+          </div>
+        ))}
+
+        {/* Empty placeholder slots */}
+        {Array.from({ length: Math.max(0, TOTAL_SLOTS - certPaths.length) }).map((_, i) => (
+          <div
+            key={`empty-${i}`}
+            onMouseEnter={() => setHovered(`e${i}`)}
+            onMouseLeave={() => setHovered(null)}
+            style={{
+              background: "#FFD341",
+              borderRadius: 14,
+              aspectRatio: "1 / 1",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              color: "#7B5800",
+              cursor: "inherit",
+              transition: "opacity 0.2s, transform 0.2s",
+              transform: hovered === `e${i}` ? "scale(1.04)" : "scale(1)",
+              opacity: hovered === `e${i}` ? 0.75 : 1,
+            }}
+          >
+            <PlusIcon />
+          </div>
+        ))}
+      </div>
+
+      {/* ── Bottom Back button ── */}
+      <div style={{ display: "flex", justifyContent: "center", marginTop: 32 }}>
+        <button
+          onClick={onBack}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = "#E8A820";
+            e.currentTarget.style.color = "#F1EAE9";
+            e.currentTarget.style.transform = "translateY(2px)";
+            e.currentTarget.style.boxShadow = "0 4px 14px rgba(232,168,32,0.35)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = "#1a1a2e";
+            e.currentTarget.style.color = "#F1EAE9";
+            e.currentTarget.style.transform = "translateY(0)";
+            e.currentTarget.style.boxShadow = "0 2px 8px rgba(26,26,46,0.18)";
+          }}
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 6,
+            background: "#1a1a2e",
+            color: "#F1EAE9",
+            border: "none",
+            borderRadius: 20,
+            padding: "9px 22px 9px 14px",
+            fontSize: 13,
+            fontWeight: 700,
+            cursor: "inherit",
+            boxShadow: "0 2px 8px rgba(26,26,46,0.18)",
+            transition: "background 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s",
+          }}
+        >
+          <BackArrow />
+          Back to About
+        </button>
+      </div>
+
+      <style>{`
+        @keyframes certFadeIn {
+          from { opacity: 0; transform: translateY(10px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
+    </div>
+  );
+}
+
+// ── Main AboutPanel ───────────────────────────────────────────────────────────
 export default function AboutPanel({ visible, isMobile = false, setSelectedCert, scrollContainer }) {
   const certPaths = [
     devfest,
-    ferret,
     hosting,
     convention,
     matilos,
-    coc
+    coc,
+    akuni,
+    session1,
+    session2,
+    session3,
+    session4,
+    ferret,
   ];
 
-  // const [visibleCount, setVisibleCount] = useState(0);
-  const certsRef = useRef(null);
+  const certsRef    = useRef(null);
+  const [showAll, setShowAll] = useState(false);
 
-const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
-const hasMore = visibleCount < certPaths.length;
-const isAllShown = !hasMore;
-// const wrapRef = useRef(null);
+  // ── If "See More" was clicked, render the full certificates page ──────────
+  if (showAll) {
+    return (
+      <AllCertificatesPage
+        certPaths={certPaths}
+        onBack={() => {
+          setShowAll(false);
+          // Scroll back to top after returning
+          setTimeout(() => {
+            if (isMobile) {
+              certsRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+            } else {
+              scrollContainer?.current?.scrollTo({ top: 0, behavior: "smooth" });
+            }
+          }, 50);
+        }}
+        setSelectedCert={setSelectedCert}
+        isMobile={isMobile}
+      />
+    );
+  }
 
-  const handleToggle = () => {
-    if (isAllShown) {
-      setVisibleCount(PAGE_SIZE);
-      setTimeout(() => {
-        if (isMobile) {
-          // Mobile: scroll the panel's own wrapper
-          certsRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
-        } else {
-          // Desktop: scroll the right panel container back to certs heading position
-          scrollContainer?.current?.scrollTo({ top: 0, behavior: "smooth" });
-        }
-      }, 50);
-    } else {
-      setVisibleCount((prev) => Math.min(prev + PAGE_SIZE, certPaths.length));
-    }
-  };
-
-const wrapStyle = isMobile
-  ? { display: "flex", flexDirection: "column", justifyContent: "center", minHeight: "100%", padding: "20px 24px 32px" }
-  : { ...panelStyle(visible), paddingTop: 0 };
+  // ── Normal About panel ─────────────────────────────────────────────────────
+  const wrapStyle = isMobile
+    ? {
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        minHeight: "100%",
+        padding: "20px 24px 32px",
+      }
+    : { ...panelStyle(visible), paddingTop: 0 };
 
   const resolvedHeadingStyle = isMobile
     ? { ...headingStyle, paddingTop: 0 }
     : headingStyle;
+
+  // Preview grid: 3 certs in a row of 3 columns
+  const previewCerts = certPaths.slice(0, PREVIEW_COUNT);
 
   return (
     <div className="section-panel" style={wrapStyle}>
@@ -70,7 +284,7 @@ const wrapStyle = isMobile
         <WavyUnderline />
       </div>
 
-      {/* ── Body text ── */}
+      {/* ── Bio ── */}
       <p className="font-halfre" style={{ margin: "14px 0 12px", fontSize: 13.5, color: "#2a2a2a", lineHeight: 1.7 }}>
         A 4th-year Computer Engineering student set to graduate in May 2026, with a practical approach
         to designing and building digital solutions. I focus on creating user-centered experiences while
@@ -82,10 +296,34 @@ const wrapStyle = isMobile
         smoother, smarter, and more enjoyable.
       </p>
 
-      {/* ── Certificates ── */}
-      <h3 ref={certsRef} style={{ margin: "0 0 14px", fontSize: 17, fontWeight: 700, color: "#1a1a2e" }}>
-        Certificates
-      </h3>
+      {/* ── Certificates heading + breadcrumb ── */}
+      <div ref={certsRef} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 }}>
+        <h3 style={{ margin: 0, fontSize: 17, fontWeight: 700, color: "#1a1a2e" }}>
+          Certificates
+        </h3>
+
+        {/* Breadcrumb — visible only when there are more certs to show */}
+        {certPaths.length > PREVIEW_COUNT && (
+          <div style={{ display: "flex", alignItems: "center", gap: 4, fontSize: 11, color: "#aaa", userSelect: "none" }}>
+            <span style={{ color: "#1a1a2e", fontWeight: 600 }}>About</span>
+            <span style={{ color: "#bbb" }}>›</span>
+            <span
+              onClick={() => setShowAll(true)}
+              onMouseEnter={(e) => { e.currentTarget.style.color = "#E8A820"; e.currentTarget.style.cursor = "inherit"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.color = "#aaa"; }}
+              style={{
+                color: "#aaa",
+                textDecoration: "underline",
+                textUnderlineOffset: 3,
+                transition: "color 0.15s",
+                fontWeight: 500,
+              }}
+            >
+              Certificates
+            </span>
+          </div>
+        )}
+      </div>
 
       <div
         style={{
@@ -97,7 +335,7 @@ const wrapStyle = isMobile
           boxSizing: "border-box",
         }}
       >
-        {certPaths.slice(0, visibleCount).map((path, i) => (
+        {previewCerts.map((path, i) => (
           <div
             key={path}
             onClick={() => setSelectedCert(path)}
@@ -110,7 +348,7 @@ const wrapStyle = isMobile
               transition: "transform 0.2s",
               backgroundColor: "#fff",
               aspectRatio: "4/3",
-              animation: i >= visibleCount - PAGE_SIZE ? "certFadeIn 0.35s ease" : "none",
+              animation: "certFadeIn 0.35s ease",
             }}
             onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
             onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
@@ -124,24 +362,26 @@ const wrapStyle = isMobile
         ))}
       </div>
 
-      {/* ── See More / See Less ── */}
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <button
-          style={{ ...btnStyle, opacity: certPaths.length <= PAGE_SIZE ? 0.5 : 1 }}
-          onClick={certPaths.length > PAGE_SIZE ? handleToggle : undefined}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.background = "#E8A820";
-            e.currentTarget.style.transform = "scale(1.04)";
-            e.currentTarget.style.cursor = "inherit";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.background = "#1a1a2e";
-            e.currentTarget.style.transform = "scale(1)";
-          }}
-        >
-          {isAllShown ? "See Less" : "See More" }
-        </button>
-      </div>
+      {/* ── See More button ── */}
+      {certPaths.length > PREVIEW_COUNT && (
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <button
+            style={btnStyle}
+            onClick={() => setShowAll(true)}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "#E8A820";
+              e.currentTarget.style.transform = "scale(1.04)";
+              e.currentTarget.style.cursor = "inherit";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "#1a1a2e";
+              e.currentTarget.style.transform = "scale(1)";
+            }}
+          >
+            See More
+          </button>
+        </div>
+      )}
     </div>
   );
 }
