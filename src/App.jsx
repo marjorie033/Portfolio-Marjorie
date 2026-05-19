@@ -14,8 +14,7 @@ import ProjectView3 from './pages/project-pages/project3-anito.jsx'
 import ContactPage from './pages/contact-me.jsx'
 import LoadingScreen from './pages/loading-screen.jsx'
 import { TransitionProvider } from './theme/page-transition.jsx'
-
-
+import UnderConstructionBanner from './pages/under-construction.jsx'
 
 
 function ScrollToTop() {
@@ -52,6 +51,7 @@ export default function App() {
       </Routes>
       <Footer />
       </TransitionProvider>
+      <UnderConstructionBanner />
       </div>
     </>
   )
