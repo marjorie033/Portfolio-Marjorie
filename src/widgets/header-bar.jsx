@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, useLocation, Link } from 'react-router-dom';
 import { useTransition } from '../theme/page-transition.jsx';
-import { CatLogoSVG, YellowWiggle, YellowWiggleLong, HamburgerIcon} from "../theme/icons";
+import { CatLogoSVG, YellowWiggle, YellowWiggleLong, HamburgerIcon } from "../theme/icons";
 
 
 export default function Header() {
@@ -20,19 +20,43 @@ export default function Header() {
     { name: 'Hire Me',  path: '/contact' },
   ];
 
- useEffect(() => {
-    const handleScroll = () => {
-      // If user scrolls more than 50px, set compact to true
-      if (window.scrollY > 50) {
-        setCompact(true);
-      } else {
-        setCompact(false);
-      }
+  // ── Scroll listener: handles BOTH window scroll and any internal
+  //    [data-scroll-container] (e.g. the About page's panel scroller)
+  useEffect(() => {
+    const computeCompact = () => {
+      const internalScroller = document.querySelector('[data-scroll-container]');
+      const scrollY = internalScroller
+        ? internalScroller.scrollTop
+        : window.scrollY;
+      setCompact(scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    // Set initial state for this route
+    computeCompact();
+
+    // Always listen to window scroll
+    window.addEventListener('scroll', computeCompact, { passive: true });
+
+    // Also listen to internal scroller if present on this route.
+    // Use a tiny timeout so the new route's DOM has time to mount.
+    let internalScroller = null;
+    const attachInternal = () => {
+      internalScroller = document.querySelector('[data-scroll-container]');
+      if (internalScroller) {
+        internalScroller.addEventListener('scroll', computeCompact, { passive: true });
+        computeCompact(); // re-check now that we found it
+      }
+    };
+    const t = setTimeout(attachInternal, 0);
+
+    return () => {
+      clearTimeout(t);
+      window.removeEventListener('scroll', computeCompact);
+      if (internalScroller) {
+        internalScroller.removeEventListener('scroll', computeCompact);
+      }
+    };
+  }, [location.pathname]); // re-attach whenever the route changes
 
   // Track mobile breakpoint
   useEffect(() => {
@@ -44,8 +68,6 @@ export default function Header() {
   // Close menu on route change
   useEffect(() => {
     setMenuOpen(false);
-    // Note: We no longer manually setCompact(false) here 
-    // because the scroll listener handles it based on position
   }, [location.pathname]);
 
   // Close menu when clicking outside
@@ -250,7 +272,7 @@ export default function Header() {
                     zIndex: 1,
                     pointerEvents: 'auto',
                     display: 'inline-block',
-                     width: 'fit-content',
+                    width: 'fit-content',
                   }}
                 >
                   <span style={{

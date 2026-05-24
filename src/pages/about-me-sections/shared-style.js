@@ -7,7 +7,7 @@ export const headingStyle = {
   color: "#1a1a2e",
   letterSpacing: "2px",
   textTransform: "uppercase",
-  paddingTop: "140px",
+  paddingTop: 0,
 };
 
 export const btnStyle = {
@@ -32,11 +32,12 @@ export const panelStyle = (visible, mobile = false) => ({
     opacity: 1,
     pointerEvents: "auto",
   } : {
-    position: "relative",      // Changed from "absolute"
-    minHeight: "100vh",        // Ensures it takes up at least one full screen height
-    padding: "28px 28px 60px", // Increased bottom padding slightly for breathing room
+    position: "relative",
+    minHeight: "100vh",
+    padding: "28px 28px 60px",
     display: "flex",
     flexDirection: "column",
+    justifyContent: "center",
     opacity: visible ? 1 : 0,
     transform: visible ? "translateY(0)" : "translateY(20px)",
     transition: "opacity 0.4s ease, transform 0.4s ease",

@@ -49,130 +49,159 @@ function AllCertificatesPage({ certPaths, onBack, setSelectedCert, isMobile }) {
       style={{
         minHeight: "100%",
         background: "#F1EAE9",
-        // Increased top padding for better spacing above the title
-        padding: isMobile ? "48px 18px 40px" : "64px 32px 48px",
+        padding: isMobile ? "56px 20px 40px" : "72px 40px 56px",
         boxSizing: "border-box",
         display: "flex",
         flexDirection: "column",
+        alignItems: "center",
         animation: "panelSlideIn 0.4s ease both",
       }}
     >
-      {/* ── Heading (breadcrumb removed) ── */}
-      <h2
-        style={{
-          margin: "0 0 24px",
-          fontSize: isMobile ? 22 : 26,
-          fontWeight: 800,
-          color: "#1a1a2e",
-          letterSpacing: "-0.5px",
-        }}
-      >
-        Certificates
-      </h2>
-
-      {/* ── Grid ── */}
+      {/* ── Inner container to keep heading + grid aligned ── */}
       <div
         style={{
-          display: "grid",
-          gridTemplateColumns: isMobile
-            ? `repeat(3, 1fr)`            // tighter grid on mobile
-            : `repeat(${COLS}, 1fr)`,
-          gap: isMobile ? "10px" : "14px",
           width: "100%",
-          boxSizing: "border-box",
+          maxWidth: 1100,
+          display: "flex",
+          flexDirection: "column",
         }}
       >
-        {/* Filled cert slots */}
-        {certPaths.map((path, i) => (
-          <div
-            key={path}
-            onClick={() => setSelectedCert(path)}
-            onMouseEnter={() => setHovered(`c${i}`)}
-            onMouseLeave={() => setHovered(null)}
-            style={{
-              overflow: "hidden",
-              borderRadius: 14,
-              border: "4px solid #E8A820",
-              backgroundColor: "#fff",
-              aspectRatio: "1 / 1",
-              cursor: "inherit",
-              transition: "transform 0.2s, opacity 0.2s, box-shadow 0.2s",
-              transform: hovered === `c${i}` ? "scale(1.04)" : "scale(1)",
-              boxShadow:
-                hovered === `c${i}`
-                  ? "0 8px 24px rgba(232,168,32,0.38)"
-                  : "0 3px 10px rgba(232,168,32,0.22)",
-              animation: `certFadeIn 0.35s ease ${Math.min(i * 0.04, 0.4)}s both`,
-            }}
-          >
-            <img
-              src={path}
-              alt={`Cert ${i + 1}`}
-              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-            />
-          </div>
-        ))}
-
-        {/* Empty placeholder slots */}
-        {Array.from({ length: Math.max(0, TOTAL_SLOTS - certPaths.length) }).map((_, i) => (
-          <div
-            key={`empty-${i}`}
-            onMouseEnter={() => setHovered(`e${i}`)}
-            onMouseLeave={() => setHovered(null)}
-            style={{
-              background: "#FFD341",
-              borderRadius: 14,
-              aspectRatio: "1 / 1",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "#7B5800",
-              cursor: "inherit",
-              transition: "opacity 0.2s, transform 0.2s",
-              transform: hovered === `e${i}` ? "scale(1.04)" : "scale(1)",
-              opacity: hovered === `e${i}` ? 0.75 : 1,
-            }}
-          >
-            <PlusIcon />
-          </div>
-        ))}
-      </div>
-
-      {/* ── Bottom Back button ── */}
-      <div style={{ display: "flex", justifyContent: "center", marginTop: 32 }}>
-        <button
-          onClick={onBack}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.background = "#E8A820";
-            e.currentTarget.style.color = "#F1EAE9";
-            e.currentTarget.style.transform = "translateY(2px)";
-            e.currentTarget.style.boxShadow = "0 4px 14px rgba(232,168,32,0.35)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.background = "#1a1a2e";
-            e.currentTarget.style.color = "#F1EAE9";
-            e.currentTarget.style.transform = "translateY(0)";
-            e.currentTarget.style.boxShadow = "0 2px 8px rgba(26,26,46,0.18)";
-          }}
+        {/* ── Heading block with proper spacing ── */}
+        <div
           style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 6,
-            background: "#1a1a2e",
-            color: "#F1EAE9",
-            border: "none",
-            borderRadius: 20,
-            padding: "9px 22px 9px 14px",
-            fontSize: 13,
-            fontWeight: 700,
-            cursor: "inherit",
-            boxShadow: "0 2px 8px rgba(26,26,46,0.18)",
-            transition: "background 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s",
+            marginBottom: isMobile ? 28 : 36,
+            paddingBottom: 16,
+            borderBottom: "1px solid rgba(26, 26, 46, 0.12)",
           }}
         >
-          <BackArrow />
-          Back to About
-        </button>
+          <h2
+            style={{
+              margin: 0,
+              fontSize: isMobile ? 24 : 30,
+              fontWeight: 800,
+              color: "#1a1a2e",
+              letterSpacing: "-0.5px",
+              lineHeight: 1.2,
+            }}
+          >
+            Certificates
+          </h2>
+          <p
+            style={{
+              margin: "6px 0 0",
+              fontSize: isMobile ? 13 : 14,
+              color: "#5a5a6e",
+              fontWeight: 500,
+            }}
+          >
+            {certPaths.length} {certPaths.length === 1 ? "certificate" : "certificates"} earned
+          </p>
+        </div>
+
+        {/* ── Grid ── */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: isMobile
+              ? `repeat(3, 1fr)`
+              : `repeat(${COLS}, 1fr)`,
+            gap: isMobile ? 12 : 16,
+            width: "100%",
+            boxSizing: "border-box",
+          }}
+        >
+          {/* Filled cert slots */}
+          {certPaths.map((path, i) => (
+            <div
+              key={path}
+              onClick={() => setSelectedCert(path)}
+              onMouseEnter={() => setHovered(`c${i}`)}
+              onMouseLeave={() => setHovered(null)}
+              style={{
+                overflow: "hidden",
+                borderRadius: 14,
+                border: "4px solid #E8A820",
+                backgroundColor: "#fff",
+                aspectRatio: "1 / 1",
+                cursor: "inherit",
+                transition: "transform 0.2s, opacity 0.2s, box-shadow 0.2s",
+                transform: hovered === `c${i}` ? "scale(1.04)" : "scale(1)",
+                boxShadow:
+                  hovered === `c${i}`
+                    ? "0 8px 24px rgba(232,168,32,0.38)"
+                    : "0 3px 10px rgba(232,168,32,0.22)",
+                animation: `certFadeIn 0.35s ease ${Math.min(i * 0.04, 0.4)}s both`,
+              }}
+            >
+              <img
+                src={path}
+                alt={`Cert ${i + 1}`}
+                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+              />
+            </div>
+          ))}
+
+          {/* Empty placeholder slots */}
+          {Array.from({ length: Math.max(0, TOTAL_SLOTS - certPaths.length) }).map((_, i) => (
+            <div
+              key={`empty-${i}`}
+              onMouseEnter={() => setHovered(`e${i}`)}
+              onMouseLeave={() => setHovered(null)}
+              style={{
+                background: "#FFD341",
+                borderRadius: 14,
+                aspectRatio: "1 / 1",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "#7B5800",
+                cursor: "inherit",
+                transition: "opacity 0.2s, transform 0.2s",
+                transform: hovered === `e${i}` ? "scale(1.04)" : "scale(1)",
+                opacity: hovered === `e${i}` ? 0.75 : 1,
+              }}
+            >
+              <PlusIcon />
+            </div>
+          ))}
+        </div>
+
+        {/* ── Bottom Back button ── */}
+        <div style={{ display: "flex", justifyContent: "center", marginTop: 40 }}>
+          <button
+            onClick={onBack}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "#E8A820";
+              e.currentTarget.style.color = "#F1EAE9";
+              e.currentTarget.style.transform = "translateY(2px)";
+              e.currentTarget.style.boxShadow = "0 4px 14px rgba(232,168,32,0.35)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "#1a1a2e";
+              e.currentTarget.style.color = "#F1EAE9";
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "0 2px 8px rgba(26,26,46,0.18)";
+            }}
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 6,
+              background: "#1a1a2e",
+              color: "#F1EAE9",
+              border: "none",
+              borderRadius: 20,
+              padding: "9px 22px 9px 14px",
+              fontSize: 13,
+              fontWeight: 700,
+              cursor: "inherit",
+              boxShadow: "0 2px 8px rgba(26,26,46,0.18)",
+              transition: "background 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s",
+            }}
+          >
+            <BackArrow />
+            Back to About
+          </button>
+        </div>
       </div>
 
       <style>{`

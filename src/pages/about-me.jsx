@@ -199,7 +199,7 @@ const handleDesktopScroll = (e) => {
         display: "flex",
         alignItems: isMobile ? "stretch" : "center",
         justifyContent: "center",
-        padding: isMobile ? "0" : "40px 24px",
+        padding: isMobile ? "0" : "88px 24px 16px",
         fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
         overflow: "hidden",
       }}>
@@ -212,7 +212,7 @@ const handleDesktopScroll = (e) => {
             alignItems: "stretch",
             maxWidth: isMobile ? "100%" : 1200,
             width: "100%",
-            height: isMobile ? "100%" : "calc(100vh - 80px)",
+            height: isMobile ? "100%" : "calc(100vh - 104px)",
           }}
         >
 
@@ -295,8 +295,9 @@ const handleDesktopScroll = (e) => {
             <div
               className="right-scroll portfolio-right"
               ref={scrollRef}
+              data-scroll-container
               onScroll={handleDesktopScroll}
-              style={{ flex: 1, background: "#F1EAE9", borderRadius: 16, position: "relative", overflowY: "scroll", height: "100vh" }}
+              style={{ flex: 1, background: "#F1EAE9", borderRadius: 16, position: "relative", overflowY: "scroll", height: "100%" }}
             >
               <div style={{ display: "flex", flexDirection: "column" }}>
                 
