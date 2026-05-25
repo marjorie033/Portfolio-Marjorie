@@ -7,6 +7,7 @@ import ExperiencesPanel from "./about-me-sections/experience-panel.jsx";
 import EducationPanel   from "./about-me-sections/education-panel.jsx";
 import { DEFAULT, experiences, educations } from "./about-me-sections/portfolio-data";
 
+
 // ─── Constants ────────────────────────────────────────────────────────────────
 const SECTIONS   = ["card", "about", "experiences", "education"];
 const SECTION_BG = {
@@ -16,6 +17,7 @@ const SECTION_BG = {
   education:   "#F1EAE9",
 };
 
+
 // ─── Main Component ───────────────────────────────────────────────────────────
 export default function PortfolioCard() {
   const [isMobile, setIsMobile] = useState(() => window.innerWidth <= 900);
@@ -24,6 +26,7 @@ export default function PortfolioCard() {
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);
+
 
   // ── Desktop state ──────────────────────────────────────────────────────────
   const [section,      setSection]      = useState("about");
@@ -43,6 +46,7 @@ export default function PortfolioCard() {
   const isAnimating = useRef(false);
   const mobileWrapRef = useRef(null);
 
+
   // ── Left panel derived values ──────────────────────────────────────────────
   const selectedExp = activeExpIdx !== null ? experiences[activeExpIdx] : null;
   const selectedEdu = activeEduIdx !== null ? educations[activeEduIdx]  : null;
@@ -54,6 +58,7 @@ export default function PortfolioCard() {
   const leftTag2     = selectedEdu ? null  : (selectedExp?.tag2     ?? DEFAULT.tag2);
   const leftHashtags = (selectedEdu || selectedExp) ? null : DEFAULT.hashtags;
   const leftExpDesc  = selectedEdu?.desc   ?? selectedExp?.expDesc  ?? null;
+
 
   // ── Desktop scroll ─────────────────────────────────────────────────────────
 const handleDesktopScroll = (e) => {
@@ -110,6 +115,7 @@ const handleDesktopScroll = (e) => {
     animRef.current = requestAnimationFrame(tick);
   }, [currentIdx]);
 
+
   // ── Mobile: wheel ─────────────────────────────────────────────────────────
   const handleWheel = useCallback((e) => {
     if (!isMobile) return;
@@ -119,6 +125,7 @@ const handleDesktopScroll = (e) => {
     if      (wheelAccum.current >  60) animateSlide(currentIdx + 1);
     else if (wheelAccum.current < -60) animateSlide(currentIdx - 1);
   }, [isMobile, currentIdx, animateSlide]);
+
 
   // ── Mobile: touch ─────────────────────────────────────────────────────────
   const handleTouchStart = useCallback((e) => {
@@ -134,6 +141,7 @@ const handleDesktopScroll = (e) => {
     else           animateSlide(currentIdx - 1);
   }, [isMobile, currentIdx, animateSlide]);
 
+  
   // Non-passive wheel listener
   useEffect(() => {
     const el = mobileWrapRef.current;

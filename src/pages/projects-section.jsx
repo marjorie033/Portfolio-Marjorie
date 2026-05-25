@@ -206,8 +206,10 @@ const sectionRef = useRef(null)
         setPhase('gripping')
       } else {
         // Dragging — card + paw go down together
+        // Use winH so the card top always clears the viewport bottom:
+        // containerTop + winH > winH for any containerTop > 0
         const t = (cardProg - 0.65) / 0.35
-        const drag = t * (CARD_HEIGHT + 200)
+        const drag = t * winH
         setPawVisible(true)
         setPawY(drag)
         setDragY(drag)

@@ -24,6 +24,10 @@ export default function Header() {
   //    [data-scroll-container] (e.g. the About page's panel scroller)
   useEffect(() => {
     const computeCompact = () => {
+      if (location.pathname === '/about') {
+        setCompact(true);
+        return;
+      }
       const internalScroller = document.querySelector('[data-scroll-container]');
       const scrollY = internalScroller
         ? internalScroller.scrollTop
