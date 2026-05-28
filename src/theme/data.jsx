@@ -140,7 +140,7 @@ export const projectsData = [
     category: "Game",
     tags: "UI design - User research - Godot Engine",
     image: howtoswimyourfish,
-    description: "A quirky puzzle platformer where you guide a fish through obstacle-filled waters to safety.",
+    description: "An underwater platformer where players steer a fish through hazard-filled levels, built in Godot with pixel art and hand-crafted stage design.",
     path: "/project/how-to-swim-your-fish"
   },
   {
@@ -148,7 +148,7 @@ export const projectsData = [
     category: "Game",
     tags: "UI designer - Lead Artist - Unity Engine",
     image: anito,
-    description: "A quirky puzzle platformer where you guide a fish through obstacle-filled waters to safety.",
+    description: "A Filipino mythology-inspired 2D game where a mortal child journeys through a spirit world. Served as Lead Artist and UI designer in Unity.",
     path: "/project/anito"
   },
   {
@@ -156,7 +156,7 @@ export const projectsData = [
     category: "Web",
     tags: "Web Developer - Layout - Wordpress",
     image: thiana,
-    description: "A music discovery website with an editorial layout designed to surface hidden gems and new sounds.",
+    description: "A professional photography portfolio site built on WordPress. Designed and developed secondary pages with a focus on clean layout and seamless UX.",
     // path: "/project/thiana-guerra-photography"
   },
   {
@@ -164,7 +164,7 @@ export const projectsData = [
     category: "Web",
     tags: "Web Developer/Designer - Wordpress",
     image: nsf,
-    description: "A music discovery website with an editorial layout designed to surface hidden gems and new sounds.",
+    description: "A nonprofit foundation website on WordPress, featuring a responsive layout and structured content to communicate the organization's mission clearly.",
     // path: "/project/nature-spring-foundation"
   },
   {
@@ -172,7 +172,7 @@ export const projectsData = [
     category: "Web",
     tags: "Web Developer/Designer - Wordpress",
     image: curious,
-    description: "A music discovery website with an editorial layout designed to surface hidden gems and new sounds.",
+    description: "A music discovery website built on WordPress with an editorial layout designed to spotlight artists and showcase new releases.",
     // path: "/project/curious-music"
   },
   {
@@ -180,7 +180,7 @@ export const projectsData = [
     category: "Web",
     tags: "Web Developer/Designer - Layout - Wordpress",
     image: itshotdogtime,
-    description: "A music discovery website with an editorial layout designed to surface hidden gems and new sounds.",
+    description: "A food brand website built on WordPress with bold visuals and a playful layout that reflects the brand's energetic personality.",
     // path: "/project/it's-hotdog-time"
   },
   {
@@ -188,7 +188,7 @@ export const projectsData = [
     category: "Mobile",
     tags: "Mobile Front-End - UI/UX - Flutter",
     image: whaloo,
-    description: "A mobile app that helps users track and manage their daily hydration habits with gentle nudges.",
+    description: "A Flutter mobile app with a clean, intuitive UI focused on smooth navigation and a polished cross-platform user experience.",
     // path: "/project/whaloo"
   },
   {
@@ -196,7 +196,7 @@ export const projectsData = [
     category: "Mobile",
     tags: "Mobile Front-End - Thesis Project - Flutter",
     image: remgloves,
-    description: "A mobile app that helps users track and manage their daily hydration habits with gentle nudges.",
+    description: "A thesis project bridging hardware and software — a smart glove with embedded sensors paired with a Flutter app for assistive gesture-based control.",
     // path: "/project/remgloves"
   },
 ];
@@ -238,7 +238,7 @@ export const projectData2 = {
   subtitle: "Interactive Game Development",
   tags: ["2D Pixelated", "Deployed"],
   description:
-    "A sorting game that teaches players to classify waste correctly through fun, fast-paced gameplay. Designed with bright, readable UI and progressive difficulty to keep players engaged while learning proper waste segregation habits.",
+    "An underwater platformer built in Godot where players guide a fish through obstacle-filled levels. Crafted with pixel art environments, tight controls, and hand-designed stages that ramp up in challenge.",
   meta: [
     { label: "Date", value: "February 2026" },
     { label: "Type", value: "Game App" },
@@ -266,9 +266,9 @@ export const projectData2 = {
 export const projectData3 = {
   title: "Anito",
   subtitle: "Interactive Game Development",
-  tags: ["2D Pixelated", "Deployed"],
+  tags: ["2D Pixelated", "In Development"],
   description:
-    "A sorting game that teaches players to classify waste correctly through fun, fast-paced gameplay. Designed with bright, readable UI and progressive difficulty to keep players engaged while learning proper waste segregation habits.",
+    "A Filipino mythology-inspired 2D action game where a mortal child navigates a world of spirits and ancient lore. Served as Lead Artist and UI/UX designer — responsible for character art, environments, and the overall visual direction in Unity.",
   meta: [
     { label: "Date", value: "August 2025" },
     { label: "Type", value: "Game App" },

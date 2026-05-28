@@ -28,7 +28,7 @@ export const experiences = [
     expTitle: "Ferre9 Creative Solution Intern",
     expRole: "May 30 - July 21, 2025",
     expDesc:
-      "Lorem ipsum dolor sit amet consectetur. Aliquam duis donec condimentum euismod nec ipsum et sed purus. Et urna id purus eu nullam ut amet mauris posuere. Sed enim odio blandit risus aliquet.",
+      "Assisted in designing and developing client websites at a creative digital agency. Also served as a QA intern, running cross-browser tests to validate UI consistency and functionality.",
     tag1: "Web Dev/Designer Intern",
     tag2: "QA Intern",
   },
@@ -37,16 +37,16 @@ export const experiences = [
     expTitle: "Ferre9 Creative Solution",
     expRole: "July 21 - March 2026",
     expDesc:
-      "Lorem ipsum dolor sit amet consectetur. Aliquam duis donec condimentum euismod nec ipsum et sed purus. Et urna id purus eu nullam ut amet mauris posuere. Sed enim odio blandit risus aliquet.",
+      "Joined full-time as a Junior Web Developer and Designer, building responsive, client-facing web solutions and contributing to the agency's design system.",
     tag1: "Junior Web Developer",
     tag2: "Junior Web Designer",
   },
-    {
+  {
     img: icpep,
     expTitle: "ICPEP",
     expRole: "July 21 - March 2025",
     expDesc:
-      "Lorem ipsum dolor sit amet consectetur. Aliquam duis donec condimentum euismod nec ipsum et sed purus. Et urna id purus eu nullam ut amet mauris posuere. Sed enim odio blandit risus aliquet.",
+      "Contributed to the Institute of Computer Engineers of the Philippines as a web developer and designer, supporting the organization's digital presence and student-facing initiatives.",
     tag1: "Junior Web Developer",
     tag2: "Junior Web Designer",
   },
@@ -58,7 +58,7 @@ export const educations = [
     school: "Cebu Institute of Technology - University",
     years: "2020 - 2026",
     degree: "BS Computer Engineering & Senior High School (STEM)",
-    desc: "Lorem ipsum dolor sit amet consectetur. Aliquam duis donec condimentum euismod nec ipsum et sed purus. Et urna id purus eu nullam ut amet mauris posuere. Sed enim odio blandit risus aliquet.",
+    desc: "Pursuing a BS in Computer Engineering with a STEM Senior High School background from the same institution, focusing on software systems, hardware, and web technologies.",
     side: "left",
   },
   {
@@ -66,7 +66,7 @@ export const educations = [
     school: "CBD College",
     years: "2018 - 2020",
     degree: "Junior High School",
-    desc: "Lorem ipsum dolor sit amet consectetur. Aliquam duis donec condimentum euismod nec ipsum et sed purus. Et urna id purus eu nullam ut amet mauris posuere.",
+    desc: "Completed Junior High School at CBD College, building a solid academic foundation across core STEM and humanities subjects.",
     side: "right",
   },
   {
@@ -74,7 +74,7 @@ export const educations = [
     school: "University of Cebu — METC",
     years: "2016 - 2017",
     degree: "Junior High School",
-    desc: "Lorem ipsum dolor sit amet consectetur. Aliquam duis donec condimentum euismod nec ipsum et sed purus.",
+    desc: "Began Junior High School at UC-METC, developing foundational skills in structured academic learning.",
     side: "left",
   },
   {
@@ -82,7 +82,7 @@ export const educations = [
     school: "Basak Community Elementary School",
     years: "2015",
     degree: "Elementary",
-    desc: "Lorem ipsum dolor sit amet consectetur. Aliquam duis donec condimentum euismod nec ipsum et sed purus.",
+    desc: "Completed elementary education at Basak Community Elementary School, establishing core literacy and numeracy skills.",
     side: "right",
   },
 ];
