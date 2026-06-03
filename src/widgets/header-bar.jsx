@@ -24,7 +24,7 @@ export default function Header() {
   //    [data-scroll-container] (e.g. the About page's panel scroller)
   useEffect(() => {
     const computeCompact = () => {
-      if (location.pathname === '/about') {
+      if (location.pathname === '/about' || location.pathname.startsWith('/project/')) {
         setCompact(true);
         return;
       }
