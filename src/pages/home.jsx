@@ -7,7 +7,7 @@ import FloatingStar from '../theme/svgs.jsx'
 import { useTransition } from '../theme/page-transition.jsx'
 import SEO from '../widgets/SEO.jsx'
 import { HeroBottomSVG } from "../theme/icons";
-import myPhoto from '../assets/226454479.png';
+import myPhoto from '../assets/Rei-edited.png';
 import resumePDF from '../assets/MatilosM-Resume.pdf';
 
 /* ── Responsive breakpoints ───────────────────────────────────────────────── */
