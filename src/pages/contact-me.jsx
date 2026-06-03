@@ -13,12 +13,26 @@ const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 function useEmailJS() {
   const ready = useRef(false);
   useEffect(() => {
-    if (window.emailjs) { ready.current = true; return; }
+    // Script already on page (cached / hot-reload) — re-init and mark ready
+    if (window.emailjs) {
+      try { window.emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY }); } catch (_) {}
+      ready.current = true;
+      return;
+    }
     const script = document.createElement("script");
     script.src = "https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js";
     script.onload = () => {
-      window.emailjs.init(EMAILJS_PUBLIC_KEY);
-      ready.current = true;
+      // v4 requires an options object — bare string throws and blocks ready
+      try {
+        window.emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+      } catch (e) {
+        console.error("EmailJS init failed:", e);
+      }
+      ready.current = true; // always mark ready so send() surfaces the real error
+    };
+    script.onerror = () => {
+      console.error("EmailJS CDN failed to load");
+      ready.current = true; // let handleSend surface a proper error via .catch()
     };
     document.head.appendChild(script);
   }, []);
