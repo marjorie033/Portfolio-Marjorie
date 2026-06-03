@@ -225,9 +225,8 @@ export default function Home() {
                 marginRight: isMobile ? 'auto' : 0,
               }}
             >
-              A 4th Year Computer Engineering student crafting interactive
-              experiences through game development, UI/UX design, and web
-              design/development — where creativity meets clean, functional code.
+              A Computer Engineering graduate crafting user-centered digital experiences through UI/UX design, 
+              front-end development, and WordPress — turning ideas into functional, thoughtfully designed solutions.
             </p>
 
             {/* Buttons */}
