@@ -80,7 +80,7 @@ const JOB_OPTIONS = [
 
 /* ── Custom select chevron ──────────────────────── */
 const SelectChevron = () => (
-  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ pointerEvents: "none" }}>
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ pointerEvents: "inherit" }}>
     <path d="M4 6l4 4 4-4" stroke="#FFD341" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 );
