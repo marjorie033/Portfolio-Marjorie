@@ -98,6 +98,7 @@ export default function ContactPage() {
   const [toast,   setToast]   = useState(false);
   const [touched, setTouched] = useState({});
   const [selectOpen, setSelectOpen] = useState(false);
+  const selectRef = useRef(null);
 
   const handleChange = (e) => {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -164,6 +165,27 @@ export default function ContactPage() {
       handleSend();
     }
   };
+
+  // Close dropdown when clicking outside the select widget
+  useEffect(() => {
+    if (!selectOpen) return;
+    const handleOutsideClick = (e) => {
+      if (selectRef.current && !selectRef.current.contains(e.target)) {
+        setSelectOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => document.removeEventListener("mousedown", handleOutsideClick);
+  }, [selectOpen]);
+
+  // Close dropdown if the snap-scroll container scrolls away
+  useEffect(() => {
+    if (!selectOpen) return;
+    const scrollEl = document.getElementById("cp-scroll");
+    const close = () => setSelectOpen(false);
+    if (scrollEl) scrollEl.addEventListener("scroll", close, { passive: true });
+    return () => { if (scrollEl) scrollEl.removeEventListener("scroll", close); };
+  }, [selectOpen]);
 
   return (
     <>
@@ -247,7 +269,7 @@ export default function ContactPage() {
 
                 <div style={{ marginBottom: 0 }}>
                   <p className="cp-label">Job Opportunity</p>
-                  <div className="cp-select-wrap" style={{ position: "relative" }}>
+                  <div ref={selectRef} className="cp-select-wrap" style={{ position: "relative" }}>
                     <div
                       className="cp-input"
                       onClick={() => setSelectOpen(o => !o)}
@@ -260,7 +282,7 @@ export default function ContactPage() {
                       <div style={{
                         position: "absolute", top: "calc(100% + 6px)", left: 0, right: 0,
                         background: "#1e1d2b", border: "1.5px solid #3a3a4a",
-                        borderRadius: 10, zIndex: 99, overflow: "hidden",
+                        borderRadius: 10, zIndex: 9999, overflow: "hidden",
                       }}>
                         {JOB_OPTIONS.map(o => (
                           <div

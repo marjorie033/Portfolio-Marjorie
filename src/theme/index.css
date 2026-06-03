@@ -413,6 +413,10 @@ p, span, h1, h2, h3, h4, h5, h6, textarea {
           background: #15141F;
           display: flex; align-items: center; justify-content: center;
           padding: 48px 64px;
+          /* Allow the custom dropdown to render beyond the section boundary
+             without being clipped by the inherited overflow:hidden from
+             .cp-section. Section 1 is guarded by .cp-s1-body overflow:hidden. */
+          overflow: visible;
         }
         .cp-form-wrap { width: 100%; max-width: 680px; }
         .cp-form-heading {
