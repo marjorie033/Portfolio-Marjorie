@@ -12,6 +12,10 @@
 
 @import "tailwindcss";
 
+html {
+  zoom: 1.1;
+}
+
 /* 👻 Theme */
 .no-select {
   -webkit-user-select: none; /* Safari */
@@ -862,7 +866,38 @@ p, span, h1, h2, h3, h4, h5, h6, textarea {
           .pv-right { padding: 28px 22px; }
         }
 
+/* ── Project 4 pages ─────────────────────────────────────────────────────── */
 
+        #project-view-1 .pv-card-inner {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        #project-view-1 .pv-main-img-wrapper {
+          position: relative;
+          width: 100%;
+          /* 3:2 ratio → height = 66.666...% of width */
+          padding-bottom: 66.6667%;
+          overflow: hidden;
+          border-radius: 8px; /* match your existing card radius if any */
+        }
+
+        #project-view-1 .pv-main-img-wrapper img {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: contain;   /* fully visible, no cropping */
+          object-position: center;
+          background: transparent; /* or match card bg if you have one */
+        }
+
+        /* ── Thumbnails: keep them proportional ── */
+        #project-view-1 .pv-thumb {
+          aspect-ratio: 3 / 2;
+          object-fit: cover;
+        }
 
 
 
