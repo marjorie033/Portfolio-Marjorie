@@ -31,9 +31,12 @@ import thiana from '../assets/projects/thiana.png';
 import nsf from '../assets/projects/nsf.png';
 import curious from '../assets/projects/curious.png';
 import itshotdogtime from '../assets/projects/itshotdogtime.png';
-import whaloo from '../assets/projects/whaloo.png';
 import remgloves from '../assets/projects/remgloves.png';
 
+import whaloo from '../assets/projects/whalo.png';
+import whaloo1 from '../assets/projects/whaloo.png';
+import whaloo2 from '../assets/projects/Whaloo2.png';
+import whaloo3 from '../assets/projects/whaloo4.png';
 
 
 // ── Home | Tools Section ─────────────────────────────────────────────────────────────
@@ -157,7 +160,7 @@ export const projectsData = [
     tags: "Web Developer - Layout - Wordpress",
     image: thiana,
     description: "A professional photography portfolio site built on WordPress. Designed and developed secondary pages with a focus on clean layout and seamless UX.",
-    // path: "/project/thiana-guerra-photography"
+    path: "https://thianaguerraphoto.com/"
   },
   {
     title: "Nature Spring Foundation",
@@ -165,7 +168,7 @@ export const projectsData = [
     tags: "Web Developer/Designer - Wordpress",
     image: nsf,
     description: "A nonprofit foundation website on WordPress, featuring a responsive layout and structured content to communicate the organization's mission clearly.",
-    // path: "/project/nature-spring-foundation"
+    path: "https://naturespringfoundation.org/"
   },
   {
     title: "Curious Music",
@@ -173,7 +176,7 @@ export const projectsData = [
     tags: "Web Developer/Designer - Wordpress",
     image: curious,
     description: "A music discovery website built on WordPress with an editorial layout designed to spotlight artists and showcase new releases.",
-    // path: "/project/curious-music"
+    path: "https://curiousmusic333.com/"
   },
   {
     title: "It's Hotdog Time",
@@ -181,7 +184,7 @@ export const projectsData = [
     tags: "Web Developer/Designer - Layout - Wordpress",
     image: itshotdogtime,
     description: "A food brand website built on WordPress with bold visuals and a playful layout that reflects the brand's energetic personality.",
-    // path: "/project/it's-hotdog-time"
+    path: "https://itshotdogtime.ca/"
   },
   {
     title: "Whaloo",
@@ -189,7 +192,7 @@ export const projectsData = [
     tags: "Mobile Front-End - UI/UX - Flutter",
     image: whaloo,
     description: "A Flutter mobile app with a clean, intuitive UI focused on smooth navigation and a polished cross-platform user experience.",
-    // path: "/project/whaloo"
+    path: "/project/whaloo"
   },
   {
     title: "RemGlove",
@@ -290,4 +293,34 @@ export const projectData3 = {
   ],
   github: "https://github.com/marjorie033",
   liveUrl: "https://settery.itch.io/know-your-trash",
+};
+
+/* ─── 👻 Whaloo Page ─────────────────────────── */
+export const projectData4 = {
+  title: "Whaloo",
+  subtitle: "Mobile Productivity App Design & Development",
+  tags: ["UI/UX Design", "Flutter", "Mobile Development"],
+  description:
+    "Designed and prototyped a mobile productivity application focused on improving students' study habits and time management. Developed an intuitive user interface, created the app's mascot and branding, and built reusable Flutter components to support efficient development and a consistent user experience.",
+  meta: [
+    { label: "Date", value: "February 2025" },
+    { label: "Type", value: "Mobile App" },
+    { label: "Role", value: "Frontend Dev" },
+    { label: "Status", value: "Ongoing" },
+  ],
+  technologies: [
+    { name: "Flutter", color: "#15141F" },
+    { name: "Dart", color: "#15141F" },
+    { name: "Figma", color: "#15141F" },
+    { name: "Adobe Illustrator", color: "#15141F" },
+  ],
+  mainImage: whaloo,
+  thumbnails: [
+    whaloo,
+    whaloo1,
+    whaloo2,
+    whaloo3,
+  ],
+  github: "https://github.com/settery7/whaloo",
+  // liveUrl: "https://settery.itch.io/know-your-trash",
 };

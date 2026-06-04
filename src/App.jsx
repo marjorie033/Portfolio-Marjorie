@@ -10,6 +10,7 @@ import ProjectsHero from './pages/projects-hero.jsx'
 import ProjectView1 from './pages/project-pages/project1.jsx'
 import ProjectView2 from './pages/project-pages/project2-htsyf.jsx'
 import ProjectView3 from './pages/project-pages/project3-anito.jsx'
+import ProjectView4 from './pages/project-pages/project4-whaloo.jsx'
 
 import ContactPage from './pages/contact-me.jsx'
 import LoadingScreen from './pages/loading-screen.jsx'
@@ -48,6 +49,7 @@ export default function App() {
         <Route path="/project/know-your-trash" element={<ProjectView1 />} />
         <Route path="/project/how-to-swim-your-fish" element={<ProjectView2 />} />
         <Route path="/project/anito" element={<ProjectView3 />} />
+        <Route path="/project/whaloo" element={<ProjectView4 />} />
       </Routes>
       <Footer />
       </TransitionProvider>
