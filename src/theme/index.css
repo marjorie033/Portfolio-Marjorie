@@ -1,7 +1,7 @@
 /*import '../theme/index.css' */
 /* 👻 Theme */
 /* 👻 About Me*/
-/*👻 Home*/
+/* 👻 Home*/
 /* 👻 Contact Section */
 /* 👻Tools Section*/
 /* 👻 Projects Page */
@@ -334,7 +334,11 @@ p, span, h1, h2, h3, h4, h5, h6, textarea {
 
         .cp-section {
           scroll-snap-align: start;
+          scroll-snap-stop: always;
           height: 100vh;
+          box-sizing: border-box;
+          padding-top: 7.5vh;
+          padding-bottom: 7.5vh;
           position: relative;
           overflow: hidden;
         }
