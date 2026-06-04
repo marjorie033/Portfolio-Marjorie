@@ -324,7 +324,7 @@ p, span, h1, h2, h3, h4, h5, h6, textarea {
 /* ═══ 👻 Contact Me Page CSS ═══ */
 
         .cp-scroll {
-          height: 100vh;
+          height: 90vh;
           overflow-y: scroll;
           scroll-snap-type: y mandatory;
           scroll-behavior: smooth;
@@ -335,10 +335,7 @@ p, span, h1, h2, h3, h4, h5, h6, textarea {
         .cp-section {
           scroll-snap-align: start;
           scroll-snap-stop: always;
-          height: 100vh;
-          box-sizing: border-box;
-          padding-top: 7.5vh;
-          padding-bottom: 7.5vh;
+          height: 85vh;
           position: relative;
           overflow: hidden;
         }
@@ -419,11 +416,10 @@ p, span, h1, h2, h3, h4, h5, h6, textarea {
         /* ═══ 👻 SECTION 2 ═══ */
         .cp-s2 {
           background: #15141F;
-          display: flex; align-items: center; justify-content: center;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           padding: 48px 64px;
-          /* Allow the custom dropdown to render beyond the section boundary
-             without being clipped by the inherited overflow:hidden from
-             .cp-section. Section 1 is guarded by .cp-s1-body overflow:hidden. */
           overflow: visible;
         }
         .cp-form-wrap { width: 100%; max-width: 680px; }
