@@ -275,7 +275,7 @@ export const MouthDesktopClosedSVG = () => (
 // )
 
 export const MouthMobileSVG = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="654" height="1081" viewBox="0 0 654 1081" fill="none" style={{ width: '100%', height: '100%', display: 'block' }}>
+  <svg xmlns="http://www.w3.org/2000/svg" width="654" height="1220" viewBox="0 0 654 1081" fill="none" style={{ width: '100%', height: '100%', display: 'block' }}>
     <rect y="24" width="654" height="1000.72" rx="70" fill="#D85662"/>
     <path d="M581.658 743L65.0661 743C64.2301 743 63.7786 742.017 64.3004 741.364C202.684 568.139 417.589 570.644 582.36 741.294C582.972 741.928 582.539 743 581.658 743Z" fill="#9A313B" stroke="#9A313B"/>
     <path d="M125.145 94.5472L78.2709 24.2772L171.801 23.5908L125.145 94.5472Z" fill="white"/>

@@ -150,9 +150,7 @@ function ProjectCard({ project, stackIndex, dragY, isDragging }) {
 export default function ProjectsSection() {
 const sectionRef = useRef(null)
 
-  // Which card is on top (0 = first project)
   const [topIndex, setTopIndex]   = useState(0)
-  // How far the top card has been dragged (px, positive = down)
   const [dragY, setDragY]         = useState(0)
   // Is paw visible
   const [pawVisible, setPawVisible] = useState(false)
