@@ -42,6 +42,14 @@ const styles = `
   /* ── Buttons: sit naturally below thumbnails ── */
   #project-view-1 .pv-btn-row {
     flex: 0 0 auto;
+    width: 100%;
+  }
+
+  /* ── GitHub button fills the full row (no Live View sibling) ── */
+  #project-view-1 .pv-btn-gh {
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 14px;
   }
 
   /* ── Tablet: reduce height slightly so it stays balanced ── */
