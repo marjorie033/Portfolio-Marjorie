@@ -152,15 +152,12 @@ const sectionRef = useRef(null)
 
   const [topIndex, setTopIndex]   = useState(0)
   const [dragY, setDragY]         = useState(0)
-  // Is paw visible
   const [pawVisible, setPawVisible] = useState(false)
-  // Paw position: rises from bottom then drags down with card
   const [pawY, setPawY]           = useState(0)
-  // Phase: 'idle' | 'rising' | 'dragging' | 'done'
   const [phase, setPhase]         = useState('idle')
 
-  const CARD_HEIGHT  = 380   // approximate card height px
-  const DRAG_THRESH  = 120   // px dragged before card snaps away
+  const CARD_HEIGHT  = 380
+  const DRAG_THRESH  = 120
 
   useEffect(() => {
     const handleScroll = () => {
@@ -169,43 +166,29 @@ const sectionRef = useRef(null)
       const rect    = sectionRef.current.getBoundingClientRect()
       const winH    = window.innerHeight
       const secH    = sectionRef.current.offsetHeight
-      // scrolled px past section top
       const scrolled = Math.max(-rect.top, 0)
-      // total scrollable range inside section
       const range    = secH - winH
-      // overall 0→1 progress through section
       const progress = Math.min(scrolled / range, 1)
 
-      // Each card gets an equal slice of the scroll range
       const total     = projects.length
       const sliceSize = 1 / total
       const cardIndex = Math.min(Math.floor(progress / sliceSize), total - 1)
-      // progress within the current card's slice (0→1)
       const cardProg  = (progress - cardIndex * sliceSize) / sliceSize
 
       setTopIndex(cardIndex)
 
-      // Paw logic within each card's slice:
-      // 0.00→0.35 — paw rises from bottom of card
-      // 0.35→0.65 — paw holds at center (grip)
-      // 0.65→1.00 — paw + card drag downward
       if (cardProg < 0.35) {
-        // Rising — paw comes up from +200px to 0
         const t = cardProg / 0.35
         setPawVisible(true)
         setPawY(200 - t * 200)
         setDragY(0)
         setPhase('rising')
       } else if (cardProg < 0.65) {
-        // Gripping — paw steady
         setPawVisible(true)
         setPawY(0)
         setDragY(0)
         setPhase('gripping')
       } else {
-        // Dragging — card + paw go down together
-        // Use winH so the card top always clears the viewport bottom:
-        // containerTop + winH > winH for any containerTop > 0
         const t = (cardProg - 0.65) / 0.35
         const drag = t * winH
         setPawVisible(true)
@@ -214,7 +197,6 @@ const sectionRef = useRef(null)
         setPhase('dragging')
       }
 
-      // Last card fully dragged: hide paw
       if (cardIndex === total - 1 && cardProg > 0.98) {
         setPawVisible(false)
         setPhase('done')
@@ -226,7 +208,6 @@ const sectionRef = useRef(null)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Visible cards = top card + up to 2 cards behind it for stack illusion
   const visibleCards = projects
     .slice(topIndex)
     .slice(0, 3)
@@ -237,12 +218,11 @@ const sectionRef = useRef(null)
       id="projects"
       style={{
         background: '#15141F',
-        // tall enough for each card to have its own scroll slice
         minHeight: `${projects.length * 220}vh`,
         position: 'relative',
       }}
     >
-      {/* Sticky viewport — stays in view while section scrolls */}
+      {/* Sticky viewport */}
       <div style={{
         position: 'sticky',
         top: 0,
@@ -252,18 +232,22 @@ const sectionRef = useRef(null)
         alignItems: 'center',
         justifyContent: 'center',
         overflow: 'hidden',
+        // ✅ Counteract any inherited padding/margin from parent sections
+        padding: 0,
+        margin: 0,
       }}>
 
-        {/* Heading */}
+        {/* Heading — tightened bottom margin */}
         <h2 className="font-surgena" style={{
           fontSize: 'clamp(26px, 3.5vw, 44px)',
           fontWeight: 600,
           color: '#FFFFFF',
-          margin: '0 0 48px',
+          margin: '0 0 28px',           // ✅ was 48px, reduced to 28px
           textAlign: 'center',
           WebkitFontSmoothing: 'antialiased',
           position: 'relative',
           zIndex: 10,
+          flexShrink: 0,               // ✅ prevent heading from being squished
         }}>
           My Featured Projects
         </h2>
@@ -273,11 +257,14 @@ const sectionRef = useRef(null)
           position: 'relative',
           width: '100%',
           maxWidth: 560,
-          // height = card height + stack offsets
           height: CARD_HEIGHT + 60,
+          // ✅ Use padding instead of margin so the centering flex layout
+          //    accounts for side gutters symmetrically
           padding: '0 24px',
+          boxSizing: 'border-box',     // ✅ ensures padding doesn't overflow maxWidth
+          flexShrink: 0,               // ✅ prevent stack from being squished by flex
         }}>
-          {/* Render up to 3 cards in the stack, back to front */}
+
           {[...visibleCards].reverse().map((project, revIdx) => {
             const stackIndex = visibleCards.length - 1 - revIdx
             const isTop = stackIndex === 0
@@ -292,7 +279,7 @@ const sectionRef = useRef(null)
             )
           })}
 
-          {/* Cat paw — centered on card, rises then drags down */}
+          {/* Cat paw */}
           {pawVisible && (
             <div style={{
               position: 'absolute',

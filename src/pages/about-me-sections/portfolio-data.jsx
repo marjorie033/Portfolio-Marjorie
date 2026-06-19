@@ -13,7 +13,7 @@ import bsce from "../../assets/education/bsce-logo.png";
 export const DEFAULT = {
   img: me,
   name: "Marjorie P. Matilos",
-  subtitle: "4th Year Computer Engineering Student",
+  subtitle: "Computer Engineering Graduate",
   tag1: "Web Dev/Designer",
   tag2: "Game Dev/Designer",
   hashtags: "#Computer Engineer | #Web Designer/Dev",

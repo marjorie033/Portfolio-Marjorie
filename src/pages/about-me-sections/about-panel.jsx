@@ -301,9 +301,9 @@ export default function AboutPanel({ visible, isMobile = false, setSelectedCert,
 
       {/* ── Bio ── */}
       <p className="font-halfre" style={{ margin: "14px 0 12px", fontSize: 13.5, color: "#2a2a2a", lineHeight: 1.7 }}>
-        A 4th-year Computer Engineering student set to graduate in May 2026, with a practical approach
-        to designing and building digital solutions. I focus on creating user-centered experiences while
-        handling both development and design with care and precision.
+       A Computer Engineering graduate with a practical approach to designing and building digital solutions. 
+       Passionate about creating user-centered experiences, I combine front-end development, UI/UX design, and problem-solving to deliver intuitive, functional, 
+       and visually engaging digital products. I approach both development and design with attention to detail, usability, and precision.
       </p>
       <p className="font-halfre" style={{ margin: "0 0 28px", fontSize: 13.5, color: "#2a2a2a", lineHeight: 1.7 }}>
         Currently aiming to grow professionally while enjoying the journey. I'm passionate about crafting
